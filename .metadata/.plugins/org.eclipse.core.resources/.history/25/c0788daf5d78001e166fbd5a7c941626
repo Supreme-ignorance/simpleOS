@@ -1,0 +1,14 @@
+#include "app_controller.h"
+#include "device_driver.h"
+
+int ChangeApp(void)
+{
+	int result = 0;
+
+	int nextAppNum = (getCurAppNum() + 1) % 2;
+	setCurAppNum(nextAppNum);
+	int result = ChangeApp(nextAppNum);
+	Uart_Printf("\n [INFO] CHANGE APP ==> APP%d, result : %s", curAppNum, result == 1 ? "true":"false");
+
+	return result;
+}

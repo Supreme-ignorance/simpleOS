@@ -2,6 +2,7 @@
 #include "macro.h"
 #include "option.h"
 #include "cp15.h"
+#include "app_controller.h"
 
 #include <malloc.h>
 #include <stdarg.h>
@@ -13,7 +14,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-// runtime.c
+//runtime.c
 extern void Delay(unsigned int v);
 extern unsigned int Get_Stack_Base(void);
 extern unsigned int Get_Stack_Limit(void);
@@ -45,7 +46,8 @@ extern unsigned int DABT_Falut_Address(void);
 extern unsigned int Get_SP(void);
 extern unsigned int Main_ID(void);
 extern unsigned int TLB_Type(void);
-extern void Run_App(unsigned int addr, unsigned int stack);
+extern void Init_App(unsigned int addr, unsigned int sp0, unsigned int sp1);
+extern void Run_App();
 
 //timer
 extern void Timer0_Delay(int mtime);

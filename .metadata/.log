@@ -448,3 +448,16 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.
 !MESSAGE Problems occurred while trying to save the state of the workbench.
 !SUBENTRY 1 org.eclipse.core.resources 2 234 2023-11-01 09:32:30.750
 !MESSAGE The project description file (.project) for '002.OS_Template' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SESSION 2023-11-01 09:32:38.805 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0_07
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-01 11:37:34.588
+!MESSAGE Indexed '002.OS_Template' (13 sources, 18 headers) in 0.12 sec: 956 declarations; 3,878 references; 20 unresolved inclusions; 0 syntax errors; 13 unresolved names (0.27%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-01 11:42:28.217
+!MESSAGE Indexed '002.OS_Template' (13 sources, 18 headers) in 0.10 sec: 955 declarations; 3,879 references; 20 unresolved inclusions; 0 syntax errors; 13 unresolved names (0.27%)

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;002.OS_Template/app_controller&apos; to &apos;app_controller.h&apos;" description="Rename resource &apos;app_controller&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="app_controller" name="app_controller.h" stamp="1698802999761" updateReferences="true"/>
+</session>

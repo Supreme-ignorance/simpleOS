@@ -1,0 +1,16 @@
+int initApp(void)
+{
+	int result = 0;
+}
+int runApp(int index);
+{
+
+}
+int getCurAppNum(void);
+{
+
+}
+int setCurAppNum(int num);
+{
+
+}

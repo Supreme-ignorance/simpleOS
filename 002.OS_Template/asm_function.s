@@ -8,15 +8,100 @@
 @ UTILITY FUNCTIONS
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-	.global Run_App
-Run_App:
+	.global Init_App
+Init_App:
 
-	push	{r4, lr}
+	push	{r4-r8, lr}
+
+	ldr 	r3, =0
+	ldr		r4, =PCB_BASE_APP0
+	ldr 	r5, =20
+1:
+	subs	r5, r5, #1
+	str		r3, [r4, #4]
+	bgt 	1b
+
+
+	ldr 	r3, =0
+	ldr		r4, =PCB_BASE_APP1
+	ldr 	r5, =20
+2:
+	subs	r5, r5, #1
+	str		r3, [r4, #4]
+	bgt 	2b
+
+	ldr		r4, =PCB_BASE_APP0
+	add		r4, r4, #0x34
+	add		r5, r4, #0x08
+
+	ldr		r6, =PCB_BASE_APP1
+	add		r6, r6, #0x34
+	add		r7, r6, #0x08
+
+	str		r1,	[r4]
+	str		r0,	[r5]
+	str		r2,	[r6]
+	str		r0,	[r7]
+
+	@ APP0 RUN
+
 	mrs		r4, cpsr
 	cps		#0x1f
 	mov 	sp, r1
 	blx		r0
+
 	msr		cpsr_cxsf, r4
+
+	pop		{r4-r8, pc}
+
+	.extern curAppNum
+
+	.global Run_App
+Run_App:
+
+	push	{r4, lr}
+
+	ldr 	r14, =curAppNum
+	ldr 	r14, [r14]
+
+	cmp 	r14, #1
+	ldreq 	r14, =PCB_BASE_APP0
+	cmp 	r14, #0
+	ldreq 	r14, =PCB_BASE_APP1
+
+	@@@@@ 저장
+
+	stmia	r14!, {r0-r14}^
+	mov 	r1, r14
+	pop		{r4,lr}
+	sub 	lr, lr, #4
+	stmia	r1!, {lr}
+	mrs		r0, spsr
+	str		r0, [r1]
+
+	@@@@@@
+
+	ldr 	r14, =curAppNum
+	ldr 	r14, [r14]
+
+	cmp 	r14, #0
+	ldreq 	r14, =PCB_BASE_APP0
+	cmp 	r14, #1
+	ldreq 	r14, =PCB_BASE_APP1
+
+	@@@@@@ 불러오기
+
+	@ldr 	r0, [r14], #64
+	@msr		cpsr, r0
+	ldmia	r14, {r0-r14}^
+	ldr 	r0, [r14], #64
+	msr		spsr, r0
+	ldmia 	r14,
+	@add 	r14, r14, #60
+	@blx 	r14
+
+	@@@@@@
+
 	pop		{r4, pc}
 
 	.global Get_User_SP

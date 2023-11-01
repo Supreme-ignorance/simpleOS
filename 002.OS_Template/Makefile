@@ -27,6 +27,7 @@ OBJCOPY			= "$(TOOL_DIR)/bin/$(TARGET)-objcopy"
 OBJDUMP			= "$(TOOL_DIR)/bin/$(TARGET)-objdump"
 
 # Source & Header File 
+INC 			= $(wildcard *.inc)
 CSRC 			= $(wildcard *.c)
 ASRC 			= $(wildcard *.s)
 HEADER 			= $(wildcard *.h)
@@ -50,7 +51,7 @@ $(OUT_BIN_FILE): $(OUT_ELF_FILE)
 $(OUT_ELF_FILE): $(OBJS)
 	$(LD) $(OBJS) -o $(OUT_ELF_FILE) $(LDFLAGS) -Map $(OUT_MAP_FILE) $(LIB_OPTION) -T $(LDS_FILE_NAME)
 
-$(OBJS): $(ASRC) $(CSRC) $(HEADER)
+$(OBJS): $(ASRC) $(CSRC) $(HEADER) $(INC)
 	$(CC) $(ASRC) $(CSRC) $(INCLUDE) $(CFLAGS) 
 
 clean :

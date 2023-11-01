@@ -1,0 +1,38 @@
+
+
+static int curAppNum = 0;
+
+int initApp(void)
+{
+	int result = 0;
+
+	TRY
+	            {
+	                printf("In Try Statement\n");
+	                THROW;
+	                printf("I do not appear\n");
+	            }
+	        CATCH
+	            {
+	                printf("Got Exception!\n");
+	            }
+	    ETRY;
+
+	return result;
+}
+int runApp(int index)
+{
+	int result = 0;
+
+	return result;
+}
+int getCurAppNum(void)
+{
+	return curAppNum;
+}
+int setCurAppNum(int num)
+{
+	curAppNum = num;
+
+	return curAppNum;
+}

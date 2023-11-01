@@ -120,7 +120,7 @@ ResetHandler:
 
 	@ I-Cache(12), Flow Prediction(11)
 
-	LDR     r1,=(1<<12)|(1<<11) 	@ [4] I-Cache ON, Flow Prediction ON
+	LDR     r1,=(0<<12)|(0<<11) 	@ [4] I-Cache ON, Flow Prediction ON
 	MCR     p15,0,r1,c1,c0,0
 
 @--------------------------------------------------

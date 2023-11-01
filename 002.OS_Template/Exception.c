@@ -1,4 +1,5 @@
 #include "device_driver.h"
+#include "app_controller.h"
 
 void Undef_Handler(unsigned int addr, unsigned int mode)
 {
@@ -244,14 +245,15 @@ void Key4_ISR(void)
 	GIC_Write_EOI(0, 52);
 }
 
+
 void Timer0_ISR(void)
 {
-	static int value = 0;
 
 	rTINT_CSTAT |= ((1<<5)|1);
 	GIC_Clear_Pending_Clear(0,69);
 	GIC_Write_EOI(0, 69);
 
-	LED_Display(value);
-	value = (value + 1) % 4;
+#if 1 // only change
+	ChangeApp();
+#endif
 }

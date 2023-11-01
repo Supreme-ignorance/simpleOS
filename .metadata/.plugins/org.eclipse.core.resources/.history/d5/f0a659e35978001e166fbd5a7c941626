@@ -1,0 +1,26 @@
+
+
+int curAppNum;
+
+int initApp(void)
+{
+	int result = 0;
+
+	return result;
+}
+int runApp(int index)
+{
+	int result = 0;
+
+	return result;
+}
+int getCurAppNum(void)
+{
+	return curAppNum;
+}
+int setCurAppNum(int num)
+{
+	int result = 0;
+
+	return result;
+}
