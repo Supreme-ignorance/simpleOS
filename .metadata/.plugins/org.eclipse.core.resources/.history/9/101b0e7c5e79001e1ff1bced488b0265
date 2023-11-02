@@ -22,7 +22,7 @@ int initApp(void)
 	for (i = 0; i < 2; i++){
 		Init_App(ram[0], stackBase[0], stackBase[1]);
 		SetAppTransTable(ram[0], (RAM_APP0+sizeApp[0]-1), ram[i], RW_WBWA_LOCAL, i);
-		SetAppTransTable(stackLimit[i], stackBase[i]-1, stackLimit[i], RW_WBWA_LOCAL, i);
+		SetAppTransTable(stackLimit[0], stackBase[0]-1, stackLimit[i], RW_WBWA_LOCAL, i);
 	}
 
 	return result;
