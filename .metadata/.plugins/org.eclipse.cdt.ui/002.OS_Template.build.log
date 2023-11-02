@@ -2,6 +2,24 @@
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-make: Nothing to be done for `all'.
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+./option.inc: Assembler messages:
+./option.inc: Warning: end of file not at end of a line; newline inserted
+asm_function.s:89: Warning: writeback of base register is UNPREDICTABLE
+./option.inc: Assembler messages:
+./option.inc: Warning: end of file not at end of a line; newline inserted
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
+copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
+        1개 파일이 복사되었습니다.
 
 **** Build Finished ****

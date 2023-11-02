@@ -23,7 +23,7 @@ int initApp(void)
 	return result;
 }
 
-int runApp(int index)
+int setApp(int index)
 {
 	int result = 0;
 
@@ -31,7 +31,6 @@ int runApp(int index)
 	SetTransTable(RAM_APP0, (RAM_APP0+sizeApp[index]-1), ram[index], RW_WBWA);
 	SetTransTable(stackLimit[index], STACK_BASE_APP1-1, stackLimit[index], RW_WBWA);
 	CoInvalidateMainTlb();
-	Run_App();
 
 	return result;
 }

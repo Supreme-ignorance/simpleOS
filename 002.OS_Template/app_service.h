@@ -19,6 +19,6 @@
 
 
 int initApp(void);
-int runApp(int index);
+int setApp(int index);
 int getCurAppNum(void);
 int setCurAppNum(int num);

@@ -40,7 +40,7 @@ Init_App:
 	add		r7, r6, #0x08
 	add 	r9, r7, #0x04
 
-	mrs 	r3, cpsr
+	ldr 	r3, =0x2000015f
 
 	str		r1,	[r4]
 	str		r0,	[r5]
@@ -50,9 +50,9 @@ Init_App:
 	str		r3,	[r9]
 
 	@@@@@@
-	push 	{r0-r3, ip, lr}
-	bl		checkRegister
-	pop 	{r0-r3, ip, lr}
+@	push 	{r0-r3, ip, lr}
+@	bl		checkRegister
+@	pop 	{r0-r3, ip, lr}
 	@@@@@@
 
 	@ APP0 RUN
@@ -68,31 +68,64 @@ Init_App:
 
 	.extern curAppNum
 	.extern checkRegister
+	.extern Timer0_ISR
 
-	.global Run_App
-Run_App:
+	.global Backup_Context
+Backup_Context:
 
+	push 	{r0-r3, r12, r14}
+	@@@@@
 	push	{lr}
 
 	ldr 	r14, =curAppNum
 	ldr 	r14, [r14]
 
 	cmp 	r14, #1
-	ldreq 	r14, =PCB_BASE_APP0
-	cmp 	r14, #0
 	ldreq 	r14, =PCB_BASE_APP1
+	cmp 	r14, #0
+	ldreq 	r14, =PCB_BASE_APP0
 
 	@@@@@@ 저장
 	stmia 	r14!, {r0-r14}^
+	mov 	r0, r14
+	pop 	{lr}
+	sub 	lr, lr, #4
+	str 	lr, [r0]
+	mrs 	r1, spsr
+	str 	r1, [r0, #4]
 	@@@@@@
 
-	@@@@@@
-	push 	{r0-r3, ip, lr}
-	bl		checkRegister
-	pop 	{r0-r3, ip, lr}
-	@@@@@@
+	b 		Timer0_ISR
 
-	pop		{pc}
+	pop		{r0-r3, r12, pc}
+
+	.global Load_Context
+
+Load_Context:
+
+
+	ldr 	r14, =curAppNum
+	ldr 	r14, [r14]
+
+	cmp 	r14, #1
+	ldreq 	r14, =PCB_BASE_APP1
+	cmp 	r14, #0
+	ldreq 	r14, =PCB_BASE_APP0
+
+	@@@@@ cpsr 불러오기
+	ldr 	r0, [r14, #64]
+	msr 	spsr, r0
+
+
+	@@@@@
+
+	@@@@@@ 불러오기
+	push 	{r14}
+	ldmia 	r14, {r0-r14}^
+	ldr 	r14, [r14, #60]
+
+	movs 	pc, r14
+	@@@@@@
 
 	.global Get_User_SP
 Get_User_SP:

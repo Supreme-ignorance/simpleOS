@@ -128,7 +128,7 @@ void (*ISR_Vector[])(void) =
 		Invalid_ISR,		// 66
 		Invalid_ISR,		// 67
 		Invalid_ISR,		// 68
-		Timer0_ISR,			// 69
+		Backup_Context,		// 69
 		Invalid_ISR,		// 70
 		Invalid_ISR,		// 71
 		Invalid_ISR,		// 72
@@ -249,7 +249,6 @@ void Key4_ISR(void)
 
 void Timer0_ISR(void)
 {
-
 	rTINT_CSTAT |= ((1<<5)|1);
 	GIC_Clear_Pending_Clear(0,69);
 	GIC_Write_EOI(0, 69);
@@ -257,6 +256,7 @@ void Timer0_ISR(void)
 #if 1 // only change
 	int nextAppNum = (getCurAppNum() + 1) % 2;
 	setCurAppNum(nextAppNum);
-	runApp(getCurAppNum());
+	setApp(getCurAppNum());
+	Load_Context();
 #endif
 }
