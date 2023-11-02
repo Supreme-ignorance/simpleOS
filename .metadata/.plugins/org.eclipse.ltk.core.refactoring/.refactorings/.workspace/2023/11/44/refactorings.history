@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;002.OS_Template/appManagement&apos;" deleteContents="false" description="Delete resource &apos;002.OS_Template/appManagement&apos;" element1="/002.OS_Template/appManagement" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1698806293977"/>
-</session>

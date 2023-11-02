@@ -1,4 +1,0 @@
-
-
-int initAppController(void);
-int ChangeApp(void);

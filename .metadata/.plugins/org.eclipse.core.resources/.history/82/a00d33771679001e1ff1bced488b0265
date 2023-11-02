@@ -1,6 +1,0 @@
-
-
-void checkRegister(void){
-	unsigned int app0[18] = 0x44B00000;
-	unsigned int app1[18] = 0x44B00200;
-}

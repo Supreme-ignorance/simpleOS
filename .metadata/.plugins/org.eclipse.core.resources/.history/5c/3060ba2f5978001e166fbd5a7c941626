@@ -1,8 +1,0 @@
-int ChangeApp(int index)
-{
-	int result = 0;
-
-
-
-	return result;
-}
