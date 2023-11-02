@@ -1,5 +1,6 @@
 #include "device_driver.h"
 #include "app_controller.h"
+#include "app_service.h"
 
 void Undef_Handler(unsigned int addr, unsigned int mode)
 {
@@ -254,6 +255,8 @@ void Timer0_ISR(void)
 	GIC_Write_EOI(0, 69);
 
 #if 1 // only change
-	ChangeApp();
+	int nextAppNum = (getCurAppNum() + 1) % 2;
+	setCurAppNum(nextAppNum);
+	runApp(getCurAppNum());
 #endif
 }

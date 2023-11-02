@@ -1,39 +1,29 @@
 
-**** Build of configuration Default for project 002.OS_Template ****
+**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
+make: Nothing to be done for `all'.
 
 **** Build Finished ****
 
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
+asm_function.s:90: Error: internal_relocation (type: OFFSET_IMM) not fixed up
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+make: *** [Exception.o] Error 1
 
 **** Build Finished ****
 
@@ -54,45 +44,20 @@ make: Nothing to be done for `all'.
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
@@ -118,12 +83,20 @@ make: Nothing to be done for `all'.
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
@@ -149,1476 +122,78 @@ make: Nothing to be done for `all'.
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-app_service.c: In function 'runApp':
-app_service.c:34:2: error: expected ';' before 'Run_App'
-  Run_App();
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
   ^
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:78: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:77: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:77: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:77: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:77: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:75: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:79: Warning: writeback of base register when in register list is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:79: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:79: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:79: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:80: Error: internal_relocation (type: OFFSET_IMM) not fixed up
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:57: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:79: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:16: Error: bad expression -- `ldr r3,#0'
-asm_function.s:18: Error: bad expression -- `ldr r5,#20'
-asm_function.s:28: Error: bad expression -- `ldr r3,#0'
-asm_function.s:30: Error: bad expression -- `ldr r5,#20'
-asm_function.s:73: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:95: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:73: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:95: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:73: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:95: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:96: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:97: Warning: destination register same as write-back base
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:74: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:4:2: error: invalid initializer
-  unsigned int app0[18] = 0x44B00000;
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
   ^
-test.c:5:2: error: invalid initializer
-  unsigned int app1[18] = 0x44B00200;
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
+copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
+        1개 파일이 복사되었습니다.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 002.OS_Template ****
+
+make all 
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
+./option.inc: Assembler messages:
+./option.inc: Warning: end of file not at end of a line; newline inserted
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
+./option.inc: Assembler messages:
+./option.inc: Warning: end of file not at end of a line; newline inserted
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
   ^
-test.c:7:2: error: 'for' loop initial declarations are only allowed in C99 mode
-  for (int i = 0; i < 18; i++){
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
   ^
-test.c:7:2: note: use option -std=c99 or -std=gnu99 to compile your code
-test.c:8:3: warning: implicit declaration of function 'Uart_Printf' [-Wimplicit-function-declaration]
-   Uart_Printf("\n app0 r%d : %d, app1 r%d : %d \n", i, app0[i], i, app1[i]);
-   ^
-make: *** [Exception.o] Error 1
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
+copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
+        1개 파일이 복사되었습니다.
 
 **** Build Finished ****
 
@@ -1642,63 +217,24 @@ make all
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:4:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-test.c:7:2: error: 'for' loop initial declarations are only allowed in C99 mode
-  for (int i = 0; i < 18; i++){
+crt0.s:43: Error: internal_relocation (type: OFFSET_IMM) not fixed up
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
   ^
-test.c:7:2: note: use option -std=c99 or -std=gnu99 to compile your code
-test.c:8:3: warning: implicit declaration of function 'Uart_Printf' [-Wimplicit-function-declaration]
-   Uart_Printf("\n app0 r%d : %d, app1 r%d : %d \n", i, app0[i], i, app1[i]);
-   ^
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-test.c:8:2: error: 'for' loop initial declarations are only allowed in C99 mode
-  for (int i = 0; i < 18; i++){
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
   ^
-test.c:8:2: note: use option -std=c99 or -std=gnu99 to compile your code
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
 make: *** [Exception.o] Error 1
 
 **** Build Finished ****
@@ -1723,67 +259,50 @@ make all
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-test.c:10:2: error: expected ',' or ';' before 'for'
-  for (; i < 18; i++){
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
   ^
-test.c:10:9: warning: statement with no effect [-Wunused-value]
-  for (; i < 18; i++){
-         ^
-test.c:10:20: error: expected ';' before ')' token
-  for (; i < 18; i++){
-                    ^
-test.c:10:20: error: expected statement before ')' token
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-test.c:8:2: error: 'for' loop initial declarations are only allowed in C99 mode
-  for(int i=0; i<18; i++){
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
   ^
-test.c:8:2: note: use option -std=c99 or -std=gnu99 to compile your code
-make: *** [Exception.o] Error 1
+test.c: In function 'checkRegister':
+test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app0 = 0x44B00000;
+                        ^
+test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
+  unsigned int * app1 = 0x44B00200;
+                        ^
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
+"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
+copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
+        1개 파일이 복사되었습니다.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Default for project 002.OS_Template ****
+
+make all 
+make: Nothing to be done for `all'.
 
 **** Build Finished ****
 
@@ -1807,83 +326,16 @@ make all
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-test.c:8:2: error: 'for' loop initial declarations are only allowed in C99 mode
-  for(int i=0;i<18;i++){
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
   ^
-test.c:8:2: note: use option -std=c99 or -std=gnu99 to compile your code
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:104: Error: missing expression -- `ldmia r14,'
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
+  ^
 test.c: In function 'checkRegister':
 test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
   unsigned int * app0 = 0x44B00000;
@@ -1920,44 +372,16 @@ make all
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-asm_function.s:85: Error: ARM register expected -- `bx checkRegister'
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-make: *** [Exception.o] Error 1
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
+Exception.c: In function 'Timer0_ISR':
+Exception.c:257:2: warning: implicit declaration of function 'getCurAppNum' [-Wimplicit-function-declaration]
+  int nextAppNum = (getCurAppNum() + 1) % 2;
+  ^
+Exception.c:258:2: warning: implicit declaration of function 'setCurAppNum' [-Wimplicit-function-declaration]
+  setCurAppNum(nextAppNum);
+  ^
 test.c: In function 'checkRegister':
 test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
   unsigned int * app0 = 0x44B00000;
@@ -1994,7 +418,7 @@ make all
 "C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
+asm_function.s:86: Warning: writeback of base register is UNPREDICTABLE
 ./option.inc: Assembler messages:
 ./option.inc: Warning: end of file not at end of a line; newline inserted
 test.c: In function 'checkRegister':
@@ -2030,259 +454,7 @@ make: Nothing to be done for `all'.
 **** Build of configuration Default for project 002.OS_Template ****
 
 make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
 make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:75: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 903.MULTI_APP0_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 904.MULTI_APP1_0x44100000 ****
-
-make all 
-make: Nothing to be done for `all'.
-
-**** Build Finished ****
-
-**** Build of configuration Default for project 002.OS_Template ****
-
-make all 
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-gcc" asm_function.s cp15a.s crt0.s Exception.c app_controller.c app_service.c cp15.c gic.c graphics.c key.c led.c main.c runtime.c sdhc.c test.c timer.c uart.c -nostdinc  -I. -I "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/include" -I "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1/include"  -mcpu=cortex-a9 -c -g -O3 -Wall -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-builtin -funsigned-char -ftree-vectorize -ftree-vectorizer-verbose=0 -fno-strict-aliasing -fno-common -pipe -mapcs 
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-asm_function.s:81: Warning: writeback of base register is UNPREDICTABLE
-./option.inc: Assembler messages:
-./option.inc: Warning: end of file not at end of a line; newline inserted
-test.c: In function 'checkRegister':
-test.c:5:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app0 = 0x44B00000;
-                        ^
-test.c:6:24: warning: initialization makes pointer from integer without a cast [enabled by default]
-  unsigned int * app1 = 0x44B00200;
-                        ^
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-ld" Exception.o app_controller.o app_service.o cp15.o gic.o graphics.o key.o led.o main.o runtime.o sdhc.o test.o timer.o uart.o asm_function.o cp15a.o crt0.o -o dram_0x40000000.elf --cref -Bstatic -nostdlib -p -EL -Map dram_0x40000000.map -L "C:\CodeSourcery\Sourcery G++ Lite/arm-none-eabi/lib" -L "C:\CodeSourcery\Sourcery G++ Lite/lib/gcc/arm-none-eabi/4.8.1" -lc -lgcc -T dram_0x40000000.lds
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objcopy" dram_0x40000000.elf dram_0x40000000.bin -O binary
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D .\dram_0x40000000.elf > .\__dump.txt
-"C:\CodeSourcery\Sourcery G++ Lite/bin/arm-none-eabi-objdump" -x -D -S .\dram_0x40000000.elf > .\__dump_all.txt
-copy /y dram_0x40000000.bin "C:\OpenTFTPServer\home"
-        1개 파일이 복사되었습니다.
 
 **** Build Finished ****
 

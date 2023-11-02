@@ -11,37 +11,43 @@
 	.global Init_App
 Init_App:
 
-	push	{r4-r8, lr}
+	push	{r4-r10, lr}
 
-	ldr 	r3, =0
+@@@@@ 초기화
+	ldr 	r3, =1
 	ldr		r4, =PCB_BASE_APP0
 	ldr 	r5, =20
 1:
 	subs	r5, r5, #1
-	str		r3, [r4, #4]
+	str		r3, [r4], #4
 	bgt 	1b
 
-
-	ldr 	r3, =0
 	ldr		r4, =PCB_BASE_APP1
 	ldr 	r5, =20
 2:
 	subs	r5, r5, #1
-	str		r3, [r4, #4]
+	str		r3, [r4], #4
 	bgt 	2b
+@@@@@
 
 	ldr		r4, =PCB_BASE_APP0
 	add		r4, r4, #0x34
 	add		r5, r4, #0x08
+	add 	r8, r5, #0x04
 
 	ldr		r6, =PCB_BASE_APP1
 	add		r6, r6, #0x34
 	add		r7, r6, #0x08
+	add 	r9, r7, #0x04
+
+	mrs 	r3, cpsr
 
 	str		r1,	[r4]
 	str		r0,	[r5]
 	str		r2,	[r6]
 	str		r0,	[r7]
+	str		r3,	[r8]
+	str		r3,	[r9]
 
 	@@@@@@
 	push 	{r0-r3, ip, lr}
@@ -66,7 +72,7 @@ Init_App:
 	.global Run_App
 Run_App:
 
-	push	{r4, lr}
+	push	{lr}
 
 	ldr 	r14, =curAppNum
 	ldr 	r14, [r14]
@@ -76,15 +82,9 @@ Run_App:
 	cmp 	r14, #0
 	ldreq 	r14, =PCB_BASE_APP1
 
-	@@@@@ 저장
-
-	stmia	r14!, {r0-r14}^
-	mov 	r1, r14
-	pop		{r4,lr}
-	sub 	lr, lr, #4
-	stmia	r1!, {lr}
-	mrs		r0, spsr
-	str		r0, [r1]
+	@@@@@@ 저장
+	stmia 	r14!, {r0-r14}^
+	@@@@@@
 
 	@@@@@@
 	push 	{r0-r3, ip, lr}
@@ -92,28 +92,7 @@ Run_App:
 	pop 	{r0-r3, ip, lr}
 	@@@@@@
 
-	ldr 	r14, =curAppNum
-	ldr 	r14, [r14]
-
-	cmp 	r14, #0
-	ldreq 	r14, =PCB_BASE_APP0
-	cmp 	r14, #1
-	ldreq 	r14, =PCB_BASE_APP1
-
-	@@@@@@ 불러오기
-
-@	ldr 	r0, [r14], #64
-@	msr		cpsr, r0
-@	ldmia	r14, {r0-r14}^
-@	ldr 	r0, [r14], #64
-@	msr		spsr, r0
-@	ldmia 	r14,
-@	add 	r14, r14, #60
-@	blx 	r14
-
-	@@@@@@
-
-	pop		{r4, pc}
+	pop		{pc}
 
 	.global Get_User_SP
 Get_User_SP:
