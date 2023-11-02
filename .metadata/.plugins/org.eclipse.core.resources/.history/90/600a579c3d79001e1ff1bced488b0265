@@ -99,7 +99,9 @@ Backup_Context:
 	bl 		Timer0_ISR
 	pop		{r0-r3, r12, lr}
 
-	b 		Load_Context
+	push 	{r0-r3, r12, lr}
+	bl 		Load_Context
+	pop		{r0-r3, r12, lr}
 
 	.global Load_Context
 
@@ -116,6 +118,8 @@ Load_Context:
 	@@@@@ cpsr 불러오기
 	ldr 	r0, [r14, #64]
 	msr 	spsr, r0
+
+
 	@@@@@
 
 	@@@@@@ 불러오기
