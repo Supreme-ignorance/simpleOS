@@ -1,0 +1,4 @@
+
+
+int InitApp(void);
+int RunApp0(void);

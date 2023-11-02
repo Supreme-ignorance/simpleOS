@@ -47,6 +47,7 @@ extern unsigned int Get_SP(void);
 extern unsigned int Main_ID(void);
 extern unsigned int TLB_Type(void);
 extern void Init_App(unsigned int addr, unsigned int sp0, unsigned int sp1);
+extern void Run_App0(unsigned int addr, unsigned int sp0);
 extern void Backup_Context();
 extern void Load_Context();
 

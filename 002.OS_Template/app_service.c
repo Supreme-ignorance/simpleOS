@@ -27,7 +27,7 @@ int setApp(int index)
 {
 	int result = 0;
 
-	Uart_Printf("\nAPP%d run\n", index);
+	Uart_Printf("\nAPP%d set\n", index);
 	SetTransTable(RAM_APP0, (RAM_APP0+sizeApp[index]-1), ram[index], RW_WBWA);
 	SetTransTable(stackLimit[index], STACK_BASE_APP1-1, stackLimit[index], RW_WBWA);
 	CoInvalidateMainTlb();

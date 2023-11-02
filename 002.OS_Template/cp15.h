@@ -92,6 +92,10 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define DOMAIN0			(0x0<<5)
 #define DOMAIN1			(0x1<<5)
 
+// global, Non global
+#define GLOBAL			(0x0<<19)
+#define LOCAL			(0x1<<19)
+
 // Secure, Non Secure
 #define SS				(0x0<<19)
 #define NS				(0x0<<19)
