@@ -93,8 +93,8 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define DOMAIN1			(0x1<<5)
 
 // global, Non global
-#define GLOBAL			(0x0<<17)
-#define LOCAL			(0x1<<17)
+#define GLOBAL			(0x0<<19)
+#define LOCAL			(0x1<<19)
 
 // Secure, Non Secure
 #define SS				(0x0<<19)
@@ -108,7 +108,7 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define RW_NCB			(SS|USER_RW|DOMAIN0|NCB|DT_SECTION)
 #define RW_NCNB			(SS|USER_RW|DOMAIN0|NCNB|DT_SECTION)
 #define RW_NO_ACCESS	(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
-#define RW_WBWA_LOCAL	(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
+#define RW_WBWA_LOCAL			(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
 
 // cp15a.s & cp15.c
 
