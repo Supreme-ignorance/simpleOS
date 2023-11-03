@@ -1,6 +1,5 @@
 #include "device_driver.h"
 #include "app_controller.h"
-#include "app_service.h"
 
 void Undef_Handler(unsigned int addr, unsigned int mode)
 {
@@ -44,15 +43,64 @@ void Pabort_Handler(unsigned int addr, unsigned int mode)
 	for(;;);
 }
 
-void SVC_Handler(unsigned int addr, unsigned int mode)
+void SVC_Handler_DEBUG(unsigned int addr, unsigned int mode)
 {
 	Uart_Printf("SVC-Exception @[0x%X]\nMode[0x%X]\n", addr, mode);
 	Uart_Printf("SVC-ID[%u]\n", Macro_Extract_Area(*(unsigned int *)addr, 0xffffff, 0));
 }
 
+void Invalid_SVC(void)
+{
+	Uart1_Printf("Invalid_SVC\n");
+}
+
+void* SVC_Vector[] =
+{
+		Invalid_SVC,		// 0
+		Invalid_SVC,		// 1
+		Invalid_SVC,		// 2
+		Invalid_SVC,		// 3
+		Invalid_SVC,		// 4
+		Invalid_SVC,		// 5
+		Invalid_SVC,		// 6
+		Invalid_SVC,		// 7
+		Invalid_SVC,		// 8
+		Invalid_SVC,		// 9
+		Lcd_Clr_Screen,		// 10
+		Lcd_Draw_BMP,		// 11
+		LED_Display,		// 12
+		Invalid_SVC,		// 13
+		Invalid_SVC,		// 14
+		Invalid_SVC,		// 15
+		Invalid_SVC,		// 16
+		Invalid_SVC,		// 17
+		Invalid_SVC,		// 18
+		Invalid_SVC,		// 19
+		Invalid_SVC,		// 20
+		Uart_Printf,		// 21
+		Invalid_SVC,		// 22
+		Invalid_SVC,		// 23
+		Invalid_SVC,		// 24
+		Invalid_SVC,		// 25
+		Invalid_SVC,		// 26
+		Invalid_SVC,		// 27
+		Invalid_SVC,		// 28
+		Invalid_SVC,		// 29
+		Key_Get_Key_Pressed,		// 30
+		Key_Wait_Key_Released,		// 31
+		Key_Wait_Key_Pressed,		// 32
+		Invalid_SVC,		// 33
+		Invalid_SVC,		// 34
+		Invalid_SVC,		// 35
+		Invalid_SVC,		// 36
+		Invalid_SVC,		// 37
+		Invalid_SVC,		// 38
+		Invalid_SVC,		// 39
+};
+
 void Invalid_ISR(void)	__attribute__ ((interrupt ("IRQ")));
 void Uart1_ISR(void)	__attribute__ ((interrupt ("IRQ")));
-//void Timer0_ISR(void) 	__attribute__ ((interrupt ("IRQ")));
+//void Timer0_ISR(void) __attribute__ ((interrupt ("IRQ")));
 void Key3_ISR(void)		__attribute__ ((interrupt ("IRQ")));
 void Key4_ISR(void)		__attribute__ ((interrupt ("IRQ")));
 void SDHC_ISR(void) 	__attribute__ ((interrupt ("IRQ")));
@@ -254,8 +302,6 @@ void Timer0_ISR(void)
 	GIC_Write_EOI(0, 69);
 
 #if 1 // only change
-	int nextAppNum = (getCurAppNum() + 1) % 2;
-	setCurAppNum(nextAppNum);
-	setApp(getCurAppNum());
+	switchAppASIDTTBR();
 #endif
 }

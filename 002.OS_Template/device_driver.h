@@ -2,7 +2,6 @@
 #include "macro.h"
 #include "option.h"
 #include "cp15.h"
-#include "app_controller.h"
 
 #include <malloc.h>
 #include <stdarg.h>

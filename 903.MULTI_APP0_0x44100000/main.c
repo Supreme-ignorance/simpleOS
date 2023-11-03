@@ -3,7 +3,7 @@
 #include ".\images\image0.h"
 #include ".\images\img101.h"
 
-extern WIN_INFO_ST ArrWinInfo[5];
+//extern WIN_INFO_ST ArrWinInfo[5];
 
 #define BLACK	0x0000
 #define WHITE	0xffff
@@ -21,6 +21,8 @@ void Main(void)
 {
 	Uart_Printf(">>APP0 => LCD Display\n");
 
+	int x0 = 1, x1 = 2, x2 = 3, x3 = 4, x4 = 5, x5 = 6;
+
 	for(;;)
 	{
 		Lcd_Draw_BMP(0,0,img[0]);
@@ -30,5 +32,7 @@ void Main(void)
 		Lcd_Draw_BMP(0,0,img[1]);
 		Delay(DELAY);
 		Lcd_Clr_Screen();
+
+		Uart_Printf("\n [DEBUG] STACK TEST %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d \n", x0, x1, x2, x3, x4, x5, x0, x1, x2, x3, x4, x5, x0, x1, x2, x3, x4, x5, x0, x1, x2, x3, x4, x5);
 	}
 }

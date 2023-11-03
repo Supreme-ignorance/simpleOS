@@ -53,3 +53,34 @@
 #define LCD_FB40_START_ADDR		(LCD_FB31_START_ADDR  + LCD_FB3_SIZE)
 #define LCD_FB41_START_ADDR		(LCD_FB40_START_ADDR  + LCD_FB4_SIZE)
 #define LCD_FB_END_ADDR			(LCD_FB41_START_ADDR  + LCD_FB4_SIZE)
+
+/* APP SIZE */
+#define RAM_APP0				0x44100000
+#define RAM_APP1				(RAM_APP0+SIZE_APP0)
+#define SIZE_STACK0				(1*1024*1024)
+#define SIZE_STACK1				(1*1024*1024)
+#define SIZE_PCB0				(1*512)
+#define SIZE_PCB1				(1*512)
+#define STACK_LIMIT_APP0		(RAM_APP1+SIZE_APP1)
+#define STACK_LIMIT_APP1		(STACK_LIMIT_APP0+SIZE_STACK1)
+#define STACK_BASE_APP0			(STACK_LIMIT_APP0+SIZE_STACK0)
+#define STACK_BASE_APP1			(STACK_LIMIT_APP1+SIZE_STACK1)
+#define PCB_BASE_APP0			(STACK_BASE_APP1)
+#define PCB_BASE_APP1			(STACK_BASE_APP1+SIZE_PCB0)
+
+#define SIZE_APP0				(4*1024*1024)
+#define SIZE_APP1				(4*1024*1024)
+
+#define SECTOR_APP0				100
+#define SECTOR_APP1				5000
+
+#ifndef OPTION_H
+	#define OPTION_H
+	unsigned int asid[] = {(1 << 4), (1 << 4)|1};
+	unsigned int ttbr[] = {MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_BASE + (2 << 17)};
+
+	unsigned int ram[] = {RAM_APP0, RAM_APP1};
+	unsigned int sizeApp[] = {SIZE_APP0, SIZE_APP1};
+	unsigned int stackLimit[] = {STACK_LIMIT_APP0, STACK_LIMIT_APP1};
+	unsigned int stackBase[] = {STACK_BASE_APP0, STACK_BASE_APP1};
+#endif

@@ -1,4 +1,4 @@
 
 
 int initializeApp(void);
-int switchAppASIDTTBR(int appNum);
+int switchAppASIDTTBR();

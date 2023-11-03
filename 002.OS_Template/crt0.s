@@ -45,7 +45,7 @@ HandlerIRQ:
 	.extern		Undef_Handler
 	.extern		Dabort_Handler
 	.extern		Pabort_Handler
-	.extern		SVC_Handler
+	.extern		SVC_Vector
 
 HandlerUndef:
 	stmfd	sp!,{r0-r3, r12, lr}
@@ -77,13 +77,30 @@ HandlerPabort:
 	ldmfd	sp!,{r0-r3, r12, lr}
 	subs	pc, lr, #4
 
+@	.extern checkR0
+
 HandlerSVC:
-	stmfd	sp!,{r0-r3, r12, lr}
-	sub 	r0, lr, #4
-	mrs		r1, spsr
-	and		r1, r1, #0x1f
-	bl		SVC_Handler
-	ldmfd	sp!,{r0-r3, r12, pc}^
+	push    {r4-r6, lr}
+	@@@@@ get SVC NUM
+    ldr     r4, [lr, #-4]
+    bic     r4, r4, #0xff000000
+    @@@@@ sysmode
+	cps 	#0x1f
+    @@@@@ call SVC HANDLER
+    ldr     r12, =SVC_Vector
+    ldr     r5, [r12, r4, lsl #2]
+	@@@@@ backup
+	mov 	r4, ip
+	mov 	r6, lr
+	@@@@@ SVC vector
+    blx     r5
+	@@@@@ restore
+	mov 	ip, r4
+	mov 	lr, r6
+
+	cps 	#0x13
+
+   	ldmfd   sp!, {r4-r6, pc}^
 
 @--------------------------------------------------
 @ Reset Handler Routine

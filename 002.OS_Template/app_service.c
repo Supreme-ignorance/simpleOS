@@ -17,7 +17,7 @@ int initApp(void)
 {
 	int result = 0;
 
-	// ÇÁ·Î±×·¥ Áõ°¡ ½Ã ¼öÁ¤ ÇÊ¿ä
+	// ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 	int i;
 	for (i = 0; i < 2; i++){
 		Init_App(ram[0], stackBase[0], stackBase[1]);
@@ -33,13 +33,10 @@ int setApp(int appNum)
 {
 	int result = 0;
 
-	Uart_Printf("\nAPP%d set\n", appNum);
+	Uart_Printf("\n set APP%d - ASID : 0x%x, TTBR : 0x%x \n", appNum, asid[appNum], ttbr[appNum]);
 //	CoInvalidateMainTlb();
-	int asid = appNum | (1 << 4);
-	CoSetASID(asid);
-	int TTBR = MMU_PAGE_TABLE_BASE + ((2 * appNum) << 17);
-	Uart_Printf("\n TTBR%d set %x\n", appNum, TTBR);
-	CoSetTTBase(TTBR|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+	CoSetASID(asid[appNum]);
+	CoSetTTBase(ttbr[appNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
 
 	return result;
 }
