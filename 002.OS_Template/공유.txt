@@ -1,0 +1,7 @@
+Lcd_Clr_Screen 100
+Lcd_Draw_BMP 101
+Uart_Printf 200
+LED_Display 102
+Key_Get_Key_Pressed 300
+Key_Wait_Key_Released 301
+Key_Wait_Key_Pressed 302

@@ -24,6 +24,7 @@ int initApp(void)
 		SetAppTransTable(ram[0], (RAM_APP0+sizeApp[0]-1), ram[i], RW_WBWA_LOCAL, i);
 		SetAppTransTable(stackLimit[i], stackBase[i]-1, stackLimit[i], RW_WBWA_LOCAL, i);
 	}
+	setApp(0);
 
 	return result;
 }

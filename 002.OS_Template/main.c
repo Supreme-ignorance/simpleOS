@@ -1,5 +1,5 @@
 #include "device_driver.h"
-#include "app_service.h"
+#include "app_size.h"
 
 extern WIN_INFO_ST ArrWinInfo[5];
 
@@ -57,14 +57,12 @@ void Main(void)
 	GIC_Distributor_Enable(1);
 
 	Key_ISR_Enable(1);
-	InitApp();
-	Uart_Printf("\n end init \n");
+	initializeApp();
 
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
 	Timer0_Int_Delay(1,1000);
-	setApp(0);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

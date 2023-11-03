@@ -3,7 +3,7 @@
 #include "device_driver.h"
 
 
-int InitApp(void)
+int initializeApp(void)
 {
 	int result = 0;
 

@@ -1,3 +1,4 @@
 
 
-int InitApp(void);
+int initializeApp(void);
+int switchAppASIDTTBR(int appNum);

@@ -21,23 +21,6 @@ void Main(void)
 {
 	Uart_Printf(">>APP0 => LCD Display\n");
 
-	ArrWinInfo[0].bpp_mode = BPPMODE_16BPP_565;
-	ArrWinInfo[0].bytes_per_pixel = 2;
-	ArrWinInfo[0].p_sizex = 1024;
-	ArrWinInfo[0].p_sizey = 600;
-	ArrWinInfo[0].v_sizex = 1024;
-	ArrWinInfo[0].v_sizey = 600;
-	ArrWinInfo[0].posx = (1024 - ArrWinInfo[0].p_sizex) / 2;
-	ArrWinInfo[0].posy = (600 - ArrWinInfo[0].p_sizey) / 2;
-
-	Lcd_Init();
-	Lcd_Win_Init(0, 1);
-	Lcd_Brightness_Control(8);
-
-	Lcd_Select_Display_Frame_Buffer(0, 0);
-	Lcd_Select_Draw_Frame_Buffer(0, 0);
-	Lcd_Clr_Screen();
-
 	for(;;)
 	{
 		Lcd_Draw_BMP(0,0,img[0]);
