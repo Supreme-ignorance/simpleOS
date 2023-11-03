@@ -1,4 +1,6 @@
 #include "device_driver.h"
+#include "app_size.h"
+#include "app_controller.h"
 
 extern WIN_INFO_ST ArrWinInfo[5];
 
@@ -61,7 +63,7 @@ void Main(void)
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-	Timer0_Int_Delay(1,1);
+	Timer0_Int_Delay(1,1000);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

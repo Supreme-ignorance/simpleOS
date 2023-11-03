@@ -84,6 +84,13 @@ extern void SD_Read_Sector(int sec,int n,void *buf);
 extern void SD_Write_Sector(int sec,int n,void *buf);
 extern void SDHC_ISR_Enable(int en);
 
+//test.c
+extern void checkRegister(void);
+extern void checkR0(unsigned int r0);
+extern void Print_Hello(void);
+extern int _Sqr(int a);
+extern long long _Long_Long_Add(long long a, long long b);
+
 //graphics.c
 
 typedef struct {

@@ -77,7 +77,6 @@ HandlerPabort:
 	ldmfd	sp!,{r0-r3, r12, lr}
 	subs	pc, lr, #4
 
-@	.extern checkR0
 
 HandlerSVC:
 	push    {r4-r6, lr}

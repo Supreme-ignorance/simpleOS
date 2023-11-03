@@ -56,9 +56,9 @@ void Invalid_SVC(void)
 
 void* SVC_Vector[] =
 {
-		Invalid_SVC,		// 0
-		Invalid_SVC,		// 1
-		Invalid_SVC,		// 2
+		Print_Hello,		// 0
+		_Sqr,				// 1
+		_Long_Long_Add,		// 2
 		Invalid_SVC,		// 3
 		Invalid_SVC,		// 4
 		Invalid_SVC,		// 5

@@ -17,3 +17,22 @@ void checkR0(unsigned int r0)
 {
 	Uart_Printf("\n current r0 : 0x%x \n", r0);
 }
+
+
+void Print_Hello(void)
+{
+	Uart1_Printf("\n SVC0 Service... \n");
+	Uart1_Printf("\n Hello \n");
+}
+
+int _Sqr(int a)
+{
+	Uart1_Printf("\n SVC1 Service... \n");
+	return a * a;
+}
+
+long long _Long_Long_Add(long long a, long long b)
+{
+	Uart1_Printf("\n SVC2 Service... \n");
+	return a * b;
+}

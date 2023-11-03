@@ -15,6 +15,11 @@
 // runtime.c
 extern void Delay(unsigned int v);
 
+// test.c
+extern void Print_Hello(void);
+extern int _Sqr(int a);
+extern long long _Long_Long_Add(long long a, long long b);
+
 //uart.c
 #define Uart_Printf		Uart1_Printf
 extern void Uart1_Send_Byte(char data);
