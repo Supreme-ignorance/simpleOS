@@ -13,7 +13,7 @@ Init_App:
 
 	push	{r4-r10, lr}
 
-@@@@@ 초기화
+@@@@@ init
 	ldr 	r3, =1
 	ldr		r4, =PCB_BASE_APP0
 	ldr 	r5, =20
@@ -89,8 +89,9 @@ Backup_Context:
 	cmp 	r14, #0
 	ldreq 	r14, =PCB_BASE_APP0
 
-	@@@@@@ 저장
-	stmia 	r14!, {r0-r14}^
+	@@@@@@ backup
+	stmia 	r14, {r0-r14}^
+	add 	r14, #60
 	mov 	r0, r14
 	pop 	{lr}
 	sub 	lr, lr, #4
@@ -123,12 +124,12 @@ Load_Context:
 	cmp 	r14, #0
 	ldreq 	r14, =PCB_BASE_APP0
 
-	@@@@@ cpsr 불러오기
+	@@@@@ cpsr call
 	ldr 	r0, [r14, #64]
 	msr 	spsr, r0
 	@@@@@
 
-	@@@@@@ 불러오기
+	@@@@@@ Load
 	push 	{r14}
 	ldmia 	r14, {r0-r14}^
 	ldr 	r14, [r14, #60]

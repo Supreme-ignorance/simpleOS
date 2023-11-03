@@ -2,8 +2,8 @@
 
 
 void checkRegister(void){
-	unsigned int * app0 = 0x44B00000;
-	unsigned int * app1 = 0x44B00200;
+	unsigned int * app0 = (unsigned int *) 0x44B00000;
+	unsigned int * app1 = (unsigned int *) 0x44B00200;
 
 	int i;
 	for(i=0;i<17;i++){
