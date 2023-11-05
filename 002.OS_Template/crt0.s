@@ -89,12 +89,10 @@ HandlerSVC:
     ldr     r12, =SVC_Vector
     ldr     r5, [r12, r4, lsl #2]
 	@@@@@ backup
-	mov 	r4, ip
 	mov 	r6, lr
 	@@@@@ SVC vector
     blx     r5
 	@@@@@ restore
-	mov 	ip, r4
 	mov 	lr, r6
 
 	cps 	#0x13
