@@ -8,7 +8,7 @@
 
 int curAppNum = 0;
 unsigned int asid[] = {(1 << 4), (1 << 4)|1};
-unsigned int ttbr[] = {MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_BASE + (2 << 17)};
+unsigned int ttbr[] = {MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_BASE + (1 << 14)};
 
 unsigned int ram[] = {RAM_APP0, RAM_APP1};
 unsigned int sizeApp[] = {SIZE_APP0, SIZE_APP1};
@@ -22,7 +22,7 @@ int initApp(void)
 	int i;
 	for (i = 0; i < 2; i++){
 		Init_App(ram[0], stackBase[0], stackBase[1]);
-		SetAppTransTable(ram[0], (RAM_APP0+sizeApp[0]-1), ram[i], RW_WBWA_LOCAL, i);
+		SetAppTransTablePageTable(ram[0], (RAM_APP0+sizeApp[0]-1), PAGE_1ST_RW_NCNB, i);
 		SetAppTransTable(stackLimit[i], stackBase[i]-1, stackLimit[i], RW_WBWA_LOCAL, i);
 	}
 	setApp(0);

@@ -43,6 +43,21 @@ void Pabort_Handler(unsigned int addr, unsigned int mode)
 	for(;;);
 }
 
+void Pabort_Handler(unsigned int addr, unsigned int mode)
+{
+	unsigned int r, s, sd;
+
+	Uart_Printf("PABT-Exception @[0x%X]\nMode[0x%X]\n", addr, mode);
+	Uart_Printf("PABT-Fault Address[0x%X]\n", PABT_Falut_Address());
+	sd = PABT_Falut_Status();
+	r = Macro_Extract_Area(sd, 0xf, 0);
+	s = Macro_Extract_Area(sd, 0x1, 10);
+	sd = Macro_Extract_Area(sd, 0x1, 12);
+	r += (s << 4);
+	Uart_Printf("Reason[0x%X]\nAXI-Decode(0)/Slave(1)[%d]\n", r, sd);
+	for(;;);
+}
+
 void SVC_Handler_DEBUG(unsigned int addr, unsigned int mode)
 {
 	Uart_Printf("SVC-Exception @[0x%X]\nMode[0x%X]\n", addr, mode);

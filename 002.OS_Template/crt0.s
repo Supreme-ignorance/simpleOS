@@ -70,13 +70,24 @@ HandlerDabort:
 
 HandlerPabort:
 	stmfd	sp!,{r0-r3, r12, lr}
+	@@@@@ 주소값 저장
 	sub 	r0, lr, #4
+	@@@@@ 원인 비교
+	mrc 	p15, 0, r1, c5, c0, 0
+	and 	r1, #0x140F
+	cmp 	r1, #0xF
+	beq 	1f
+	bne 	2f
+1:
 	mrs		r1, spsr
 	and		r1, r1, #0x1f
 	bl		Pabort_Handler
+	b 		3f
+2:
+	bl		Demand_Page_Handler
+3:
 	ldmfd	sp!,{r0-r3, r12, lr}
 	subs	pc, lr, #4
-
 
 HandlerSVC:
 	push    {r4-r6, lr}

@@ -95,6 +95,13 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 // global, Non global
 #define GLOBAL			(0x0<<17)
 #define LOCAL			(0x1<<17)
+#define GLOBAL_2nd		(0x0<<11)
+#define LOCAL_2nd		(0x1<<11)
+
+// AP[2], [1:0]
+#define AP_NO_ACCESS	(0x0<<9|0x00<<4)
+#define AP_ACCESS		(0x0<<9|0x11<<4)
+#define AP_RESERVED		(0x1<<9|0x00<<4)
 
 // Secure, Non Secure
 #define SS				(0x0<<19)
@@ -102,13 +109,15 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 //#define NS				(0x1<<19)
 
 // 1's-Level Translation Table Bit Field Definition
-#define RW_WBWA			(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION)
-#define RW_WB			(NS|USER_RW|DOMAIN0|WB|DT_SECTION)
-#define RW_WT			(NS|USER_RW|DOMAIN0|WT|DT_SECTION)
-#define RW_NCB			(SS|USER_RW|DOMAIN0|NCB|DT_SECTION)
-#define RW_NCNB			(SS|USER_RW|DOMAIN0|NCNB|DT_SECTION)
-#define RW_NO_ACCESS	(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
-#define RW_WBWA_LOCAL	(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
+#define RW_WBWA					(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION)
+#define RW_WB					(NS|USER_RW|DOMAIN0|WB|DT_SECTION)
+#define RW_WT					(NS|USER_RW|DOMAIN0|WT|DT_SECTION)
+#define RW_NCB					(SS|USER_RW|DOMAIN0|NCB|DT_SECTION)
+#define RW_NCNB					(SS|USER_RW|DOMAIN0|NCNB|DT_SECTION)
+#define RW_NO_ACCESS			(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
+#define RW_WBWA_LOCAL			(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
+#define PAGE_1ST_RW_NCNB		(DOMAIN0|NCNB|DT_PAGE)
+#define PAGE_2ST_RW_NCNB_LOCAL	(AP_NO_ACCESS|LOCAL_2nd)
 
 // cp15a.s & cp15.c
 
@@ -200,6 +209,8 @@ void CoUnLockL2Cache(unsigned int uWayNum);
 void CoSetExceptonVectoerBase(unsigned int uBaseAddr);
 void SetTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaStart, unsigned int attr);
 void SetAppTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaStart, unsigned int attr, int appNum);
+void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, int appNum);
+void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_2nd, int appNum);
 
 /* PA conversion */
 
