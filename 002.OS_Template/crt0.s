@@ -74,7 +74,8 @@ HandlerPabort:
 	sub 	r0, lr, #4
 	@@@@@ 원인 비교
 	mrc 	p15, 0, r1, c5, c0, 0
-	and 	r1, #0x140F
+	ldr 	r2, =0x140F
+	and 	r1, r1, r2
 	cmp 	r1, #0xF
 	beq 	1f
 	bne 	2f

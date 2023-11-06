@@ -117,7 +117,8 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define RW_NO_ACCESS			(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
 #define RW_WBWA_LOCAL			(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
 #define PAGE_1ST_RW_NCNB		(DOMAIN0|NCNB|DT_PAGE)
-#define PAGE_2ST_RW_NCNB_LOCAL	(AP_NO_ACCESS|LOCAL_2nd)
+#define PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS	(AP_NO_ACCESS|LOCAL_2nd)
+#define PAGE_2ST_RW_NCNB_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd)
 
 // cp15a.s & cp15.c
 
@@ -209,8 +210,12 @@ void CoUnLockL2Cache(unsigned int uWayNum);
 void CoSetExceptonVectoerBase(unsigned int uBaseAddr);
 void SetTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaStart, unsigned int attr);
 void SetAppTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaStart, unsigned int attr, int appNum);
+unsigned int getTtbr(int appNum);
+unsigned int getPageTableBase(int appNum);
 void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, int appNum);
-void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_2nd, int appNum);
+void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_2nd);
+unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum);
+void set2ndTTAdrress(unsigned int* targetAdrress, unsigned int sourceAdrress);
 
 /* PA conversion */
 

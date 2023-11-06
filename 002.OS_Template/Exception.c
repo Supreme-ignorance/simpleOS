@@ -1,6 +1,10 @@
 #include "device_driver.h"
 #include "app_controller.h"
 
+unsigned int curDemandPage = 0;
+unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00400;
+unsigned int* demandPageBase = (unsigned int*) 0x44C00000;
+
 void Undef_Handler(unsigned int addr, unsigned int mode)
 {
 	Uart_Printf("UND-Exception @[0x%X]\nMode[0x%X]\n", addr, mode);
@@ -43,19 +47,32 @@ void Pabort_Handler(unsigned int addr, unsigned int mode)
 	for(;;);
 }
 
-void Pabort_Handler(unsigned int addr, unsigned int mode)
-{
-	unsigned int r, s, sd;
+//unsigned int curDemandPage = 0;
+//const unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00400;
+//const unsigned int* demandPageBase = 0x44C00000;
 
-	Uart_Printf("PABT-Exception @[0x%X]\nMode[0x%X]\n", addr, mode);
-	Uart_Printf("PABT-Fault Address[0x%X]\n", PABT_Falut_Address());
-	sd = PABT_Falut_Status();
-	r = Macro_Extract_Area(sd, 0xf, 0);
-	s = Macro_Extract_Area(sd, 0x1, 10);
-	sd = Macro_Extract_Area(sd, 0x1, 12);
-	r += (s << 4);
-	Uart_Printf("Reason[0x%X]\nAXI-Decode(0)/Slave(1)[%d]\n", r, sd);
-	for(;;);
+void Demand_Page_Handler(unsigned int addr)
+{
+	Uart_Printf("Demand_Page_Handler @[0x%X]\n", addr);
+
+	int i = 0;
+	unsigned int curAppNum = getCurAppNum();
+	unsigned int* va = (unsigned int*) (addr+(curAppNum << 22)+(1 << 30));
+
+	unsigned int* nextMetaDemandPage = (unsigned int*) (metaDemandPageBase + (curDemandPage << 10)); //초기화 필요
+	unsigned int* nextDemandPage = (unsigned int*) (demandPageBase + (curDemandPage << 10));
+
+	for(i = 0; i < 1024; i++)
+	{
+		*(nextMetaDemandPage + i) = curAppNum;
+		*(nextDemandPage + i) = *(va + i);
+	}
+	Uart_Printf("pa @[0x%X]----------------------------------------------------\n", va);
+
+	set2ndTTAdrress(get2ndTTAdrress(addr, curAppNum), (unsigned int) nextDemandPage);
+
+	curDemandPage += 1;
+	curDemandPage %= 256;
 }
 
 void SVC_Handler_DEBUG(unsigned int addr, unsigned int mode)

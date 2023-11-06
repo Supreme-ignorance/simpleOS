@@ -42,3 +42,7 @@
 	
 	.equ 	PCB_BASE_APP0		,	0x44B00000
 	.equ	PCB_BASE_APP1		,	0x44B00200
+
+@ Meta_Demand_Page
+	
+	.equ	Meta_Demand_Page	,	0x44B00400
