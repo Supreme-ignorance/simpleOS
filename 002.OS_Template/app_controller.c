@@ -1,5 +1,6 @@
 
 #include "app_controller.h"
+#include "device_driver.h"
 
 
 int initializeApp(void)
@@ -7,7 +8,7 @@ int initializeApp(void)
 	int result = 0;
 
 	result = initApp();
-//	Uart_Printf("\n [INFO] INIT APP done \n");
+	Uart_Printf("\n [INFO] INIT APP done \n");
 
 	return result;
 }

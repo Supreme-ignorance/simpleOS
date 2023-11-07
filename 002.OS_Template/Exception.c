@@ -2,7 +2,7 @@
 #include "app_controller.h"
 
 unsigned int curDemandPage = 0;
-unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00600;
+unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00400;
 unsigned int* demandPageBase = (unsigned int*) 0x44C00000;
 
 void Undef_Handler(unsigned int addr, unsigned int mode)
@@ -84,13 +84,17 @@ void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 		address = address - (1 << 30);
 
 		CoSetASID(asid[appNum]);
-		CoSetTTBase(ttbr[appNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+		CoSetTTBase(ttbr[appNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
 
 		restoreDemandPage(nextDemandPage, *nextMetaDemandPage);
 		set2ndTTAdrress(address, 0, appNum, PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS);
 
 		CoSetASID(asid[curAppNum]);
-		CoSetTTBase(ttbr[curAppNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+		CoSetTTBase(ttbr[curAppNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+
+//		L2C_CleanAndInvalidate_VA(address, OS_WRITE);
+//		CoCleanAndInvalidateDCacheVA(address);
+		L2C_CleanAndInvalidate_All();
 	}
 
 
@@ -101,11 +105,14 @@ void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 		*(nextDemandPage + i) = *(source_va + i);
 	}
 
-	set2ndTTAdrress(addr, (unsigned int) nextDemandPage, curAppNum, PAGE_2ST_RW_NCNB_LOCAL_ACCESS);
+	set2ndTTAdrress(addr, (unsigned int) nextDemandPage, curAppNum, PAGE_2ST_RW_WBWA_LOCAL_ACCESS);
 	CoInvalidateMainTlb();
+//	L2C_CleanAndInvalidate_VA(addr, OS_WRITE);
+//	CoCleanAndInvalidateDCacheVA(addr);
+	L2C_CleanAndInvalidate_All();
 
 	curDemandPage += 1;
-	curDemandPage %= 256;
+	curDemandPage %= MAX_META_PAGE;
 //	Uart_Printf("Demand_Page_Handler END \n");
 }
 

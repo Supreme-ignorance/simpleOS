@@ -29,6 +29,7 @@ void App_Read(unsigned int sector, unsigned int size, unsigned int addr)
 void Main(void)
 {
 	CoInitMmuAndL1L2Cache();
+	initializeApp();
 	Uart_Init(115200);
 	LED_Init();
 	Key_ISR_Init();
@@ -58,12 +59,12 @@ void Main(void)
 	GIC_Distributor_Enable(1);
 
 	Key_ISR_Enable(1);
-	initializeApp();
+	Uart_Printf("\nOS SET\n");
 
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-	Timer0_Int_Delay(1,2000);
+	Timer0_Int_Delay(1,5000);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

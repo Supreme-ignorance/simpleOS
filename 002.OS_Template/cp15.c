@@ -191,7 +191,7 @@ unsigned int getPageTableBase(int appNum)
 	return 0x44008000 | (appNum << 12);
 }
 
-void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, int appNum)
+void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, unsigned int acf_2nd, int appNum)
 {
 	unsigned int i;
 	unsigned int* ptt_1st = 0;
@@ -200,7 +200,6 @@ void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsig
 	unsigned int time = ((uVaEnd + 1) - uVaStart) >> 20; // 1MB
 	unsigned int ttbr = getTtbr(appNum);
 	unsigned int pageTableBase = getPageTableBase(appNum);
-	unsigned int acf_2nd = PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS;
 
 	for (i = 0; i < time; i++)
 	{
@@ -341,9 +340,9 @@ void CoInitMmuAndL1L2Cache(void)
 	CoTTSet_APP_L1L2(1);
 
 	CoEnableMmu();
-//	L2C_Enable();
-//	CoEnableICache();
-//	CoEnableDCache();
+	L2C_Enable();
+	CoEnableICache();
+	CoEnableDCache();
 	CoEnableBranchPrediction();
 }
 
@@ -374,7 +373,7 @@ void CoStartMmuAndL1L2Cache(void)
 
 	CoEnableMmu();
 	L2C_Enable();
-//	CoEnableICache();
+	CoEnableICache();
 	CoEnableDCache();
 	CoEnableBranchPrediction();
 }
@@ -413,8 +412,8 @@ static void CoTTSet_L1L2(void)
 {
 	CoTTSet_APP_L1L2(0);
 
-	CoSetTTBase(MMU_PAGE_TABLE_BASE|(0<<6)|(0<<3)|(0<<1)|(0<<0));
-//	CoSetTTBase(MMU_PAGE_TABLE_BASE|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+//	CoSetTTBase(MMU_PAGE_TABLE_BASE|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+	CoSetTTBase(MMU_PAGE_TABLE_BASE|(1<<6)|(1<<3)|(0<<1)|(0<<0));
 	CoSetDomain(0x55555550|(DOMAIN_NO_ACCESS<<2)|(DOMAIN_CLIENT));
 }
 
@@ -427,7 +426,7 @@ static void CoTTSet_APP_L1L2(int appNum)
 	SetAppTransTable(MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_LIMIT-1, MMU_PAGE_TABLE_BASE, RW_WBWA, appNum);
 
 	/* Free Memory */
-	SetAppTransTable(MMU_PAGE_TABLE_LIMIT, LCD_FB00_START_ADDR-1, MMU_PAGE_TABLE_LIMIT, RW_NCNB, appNum);
+	SetAppTransTable(MMU_PAGE_TABLE_LIMIT, LCD_FB00_START_ADDR-1, MMU_PAGE_TABLE_LIMIT, RW_WT, appNum);
 
 	/* LCD Frame Buffer */
 	SetAppTransTable(LCD_FB00_START_ADDR, LCD_FB01_START_ADDR-1, LCD_FB00_START_ADDR, RW_WT, appNum);

@@ -75,6 +75,8 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define WT			(0x2<<2)		/* Write-Through Cached <=> Buffered(ARMv7 : Outer and Inner WT, No Write-Allocate) */
 #define WB			(0x3<<2)		/* Write-Back Cached <=> Buffered(ARMv7 : Outer and Inner WB, No Write-Allocate) */
 #define WBWA		((0x1<<12)|(0x3<<2))
+#define WBWA_2nd	((0x1<<9)|(0x3<<4))
+#define WT_2nd		((0x2<<4))
 
 // Access Permission Bits Definition(When AP[2]=0 in ARMv7)
 #define ALL_NO_ACCESS	(0<<10)	/* Previleged:No, User:No */
@@ -109,16 +111,21 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 //#define NS				(0x1<<19)
 
 // 1's-Level Translation Table Bit Field Definition
-#define RW_WBWA					(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION)
-#define RW_WB					(NS|USER_RW|DOMAIN0|WB|DT_SECTION)
-#define RW_WT					(NS|USER_RW|DOMAIN0|WT|DT_SECTION)
-#define RW_NCB					(SS|USER_RW|DOMAIN0|NCB|DT_SECTION)
-#define RW_NCNB					(SS|USER_RW|DOMAIN0|NCNB|DT_SECTION)
-#define RW_NO_ACCESS			(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
-#define RW_WBWA_LOCAL			(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
-#define PAGE_1ST_RW_NCNB		(DOMAIN0|NCNB|DT_PAGE)
+#define RW_WBWA								(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION)
+#define RW_WB								(NS|USER_RW|DOMAIN0|WB|DT_SECTION)
+#define RW_WT								(NS|USER_RW|DOMAIN0|WT|DT_SECTION)
+#define RW_NCB								(SS|USER_RW|DOMAIN0|NCB|DT_SECTION)
+#define RW_NCNB								(SS|USER_RW|DOMAIN0|NCNB|DT_SECTION)
+#define RW_NO_ACCESS						(SS|USER_RW|DOMAIN1|NCNB|DT_SECTION)
+#define RW_WBWA_LOCAL						(NS|USER_RW|DOMAIN0|WBWA|DT_SECTION|LOCAL)
+#define RW_WT_LOCAL							(NS|USER_RW|DOMAIN0|WT|DT_SECTION|LOCAL)
+#define PAGE_1ST_RW							(DOMAIN0|DT_PAGE)
+
+// 2's-Level Translation Table Bit Field Definition
 #define PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS	(AP_NO_ACCESS|LOCAL_2nd)
 #define PAGE_2ST_RW_NCNB_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd)
+#define PAGE_2ST_RW_WBWA_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd|WBWA_2nd)
+#define PAGE_2ST_RW_WT_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd|WT_2nd)
 
 // cp15a.s & cp15.c
 
@@ -212,7 +219,7 @@ void SetTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaS
 void SetAppTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int uPaStart, unsigned int attr, int appNum);
 unsigned int getTtbr(int appNum);
 unsigned int getPageTableBase(int appNum);
-void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, int appNum);
+void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, unsigned int acf_2nd, int appNum);
 void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_2nd);
 unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum);
 void set2ndTTAdrress(unsigned int uVa, unsigned int sourceAdrress, int appNum, unsigned int acf);
