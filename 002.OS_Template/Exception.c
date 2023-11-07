@@ -378,3 +378,14 @@ void Timer0_ISR(void)
 	switchAppASIDTTBR();
 #endif
 }
+
+void Switch_APP_ISR(void)
+{
+	rTINT_CSTAT |= ((1<<5)|1);
+	GIC_Clear_Pending_Clear(0,69);
+	GIC_Write_EOI(0, 69);
+
+#if 1 // only change
+	switchAppASIDTTBR();
+#endif
+}

@@ -107,7 +107,7 @@ Backup_Context:
 	@@@@@@
 
 	push 	{r0-r3, r12, lr}
-	bl 		Timer0_ISR
+	bl 		Switch_APP_ISR
 	pop		{r0-r3, r12, lr}
 
 	b 		Load_Context
