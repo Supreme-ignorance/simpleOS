@@ -170,7 +170,7 @@ void SetAppTransTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int u
 	uPaStart &= ~0xfffff;
 	uVaStart &= ~0xfffff;
 
-	int TTBR = MMU_PAGE_TABLE_BASE + ((1 * appNum) << 14);
+	int TTBR = MMU_PAGE_TABLE_BASE + (appNum << 14);
 
 	pTT = (unsigned int *)TTBR+(uVaStart>>20);
 	nNumOfSec = (0x1000+(uVaEnd>>20)-(uVaStart>>20))%0x1000;
@@ -197,17 +197,19 @@ void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsig
 	unsigned int* ptt_1st = 0;
 
 	unsigned int sizeOfSec = 1 << 20; // 1MB
+	unsigned int time = ((uVaEnd + 1) - uVaStart) >> 20; // 1MB
 	unsigned int ttbr = getTtbr(appNum);
 	unsigned int pageTableBase = getPageTableBase(appNum);
 	unsigned int acf_2nd = PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS;
 
-	for (i = uVaStart; i < uVaEnd; i += sizeOfSec)
+	for (i = 0; i < time; i++)
 	{
-		unsigned int firstIndex = (i & 0xfff00000) >> 18;
+		unsigned int curVa = uVaStart + sizeOfSec * i;
+		unsigned int firstIndex = (curVa & 0xfff00000) >> 18;
 
 		ptt_1st = (unsigned int*) (ttbr|firstIndex);
-		*ptt_1st = pageTableBase|acf_1st;
-		SetAppTransTablePage(*ptt_1st, i, i + sizeOfSec, acf_2nd);
+		*ptt_1st = pageTableBase|acf_1st|(i << 10);
+		SetAppTransTablePage(*ptt_1st, curVa, curVa + sizeOfSec - 1, acf_2nd);
 	}
 }
 
@@ -221,7 +223,7 @@ void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned 
 	for (i = uVaStart; i < uVaEnd; i += sizeOfPage)
 	{
 		unsigned int secondIndex = (i & 0xff000) >> 10;
-		ptt_2nd = (unsigned int*) ((pTT_1st & ~0xfff)|secondIndex);
+		ptt_2nd = (unsigned int*) ((pTT_1st & ~0x3ff)|secondIndex);
 		*ptt_2nd = acf_2nd|(1 << 1);
 	}
 }
@@ -232,7 +234,7 @@ unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum)
 
 	unsigned int ttbr = getTtbr(appNum);
 
-	unsigned int* ptt_1st = (unsigned int*) ((ttbr & 0xfffffc)|((uVa & ~0xfffff) >> 18));
+	unsigned int* ptt_1st = (unsigned int*) ((ttbr & 0xffffc000)|((uVa & ~0xfffff) >> 18));
 	unsigned int* ptt_2nd = (unsigned int*) ((*ptt_1st & ~0x3ff)|((uVa & ~0xfff00fff) >> 10));
 
 	res = ptt_2nd;
@@ -240,9 +242,10 @@ unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum)
 	return res;
 }
 
-void set2ndTTAdrress(unsigned int* targetAdrress, unsigned int sourceAdrress)
+void set2ndTTAdrress(unsigned int uVa, unsigned int sourceAdrress, int appNum, unsigned int acf)
 {
-	*targetAdrress = (sourceAdrress & ~0xfff)|PAGE_2ST_RW_NCNB_LOCAL_ACCESS|(1<<1);
+	unsigned int* targetAdrress = get2ndTTAdrress(uVa, appNum);
+	*targetAdrress = (sourceAdrress & ~0xfff)|acf|(1<<1);
 }
 
 static void CoTTSet_L1(void);
@@ -338,9 +341,9 @@ void CoInitMmuAndL1L2Cache(void)
 	CoTTSet_APP_L1L2(1);
 
 	CoEnableMmu();
-	L2C_Enable();
-	CoEnableICache();
-	CoEnableDCache();
+//	L2C_Enable();
+//	CoEnableICache();
+//	CoEnableDCache();
 	CoEnableBranchPrediction();
 }
 
@@ -371,7 +374,7 @@ void CoStartMmuAndL1L2Cache(void)
 
 	CoEnableMmu();
 	L2C_Enable();
-	CoEnableICache();
+//	CoEnableICache();
 	CoEnableDCache();
 	CoEnableBranchPrediction();
 }
@@ -410,7 +413,8 @@ static void CoTTSet_L1L2(void)
 {
 	CoTTSet_APP_L1L2(0);
 
-	CoSetTTBase(MMU_PAGE_TABLE_BASE|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+	CoSetTTBase(MMU_PAGE_TABLE_BASE|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+//	CoSetTTBase(MMU_PAGE_TABLE_BASE|(1<<6)|(1<<3)|(0<<1)|(0<<0));
 	CoSetDomain(0x55555550|(DOMAIN_NO_ACCESS<<2)|(DOMAIN_CLIENT));
 }
 
@@ -439,6 +443,6 @@ static void CoTTSet_APP_L1L2(int appNum)
 
 	SetAppTransTable(LCD_FB_END_ADDR, 0x80000000-1, LCD_FB_END_ADDR, RW_NO_ACCESS, appNum);
 	SetAppTransTable(0x80000000, 0x84100000, 0x80000000, RW_NO_ACCESS, appNum);
-	SetAppTransTable(0x84100000, 0x848fffff, 0x44100000, RW_WBWA_LOCAL, appNum);
+	SetAppTransTable(0x84100000, 0x844fffff, 0x84100000, RW_NO_ACCESS, appNum);
 	SetAppTransTable(0x84900000, 0xFFFFFFFF, 0x80900000, RW_NO_ACCESS, appNum);
 }

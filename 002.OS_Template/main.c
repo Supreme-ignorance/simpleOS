@@ -63,7 +63,7 @@ void Main(void)
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-	Timer0_Int_Delay(1,1000);
+	Timer0_Int_Delay(1,2000);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

@@ -60,18 +60,8 @@ HandlerUndef:
 
 HandlerDabort:
 	stmfd	sp!,{r0-r3, r12, lr}
-	sub 	r0, lr, #8
-	mrs		r1, spsr
-	and		r1, r1, #0x1f
-	bl		Dabort_Handler
-	ldmfd	sp!,{r0-r3, r12, lr}
-	@subs	pc, lr, #8
-	subs	pc, lr, #4
-
-HandlerPabort:
-	stmfd	sp!,{r0-r3, r12, lr}
 	@@@@@ 주소값 저장
-	sub 	r0, lr, #4
+	mrc 	p15, 0, r0, c6, c0, 0
 	@@@@@ 원인 비교
 	mrc 	p15, 0, r1, c5, c0, 0
 	ldr 	r2, =0x140F
@@ -80,12 +70,38 @@ HandlerPabort:
 	beq 	1f
 	bne 	2f
 1:
+	sub 	r1, lr, #8
+	bl		Demand_Page_Handler
+	b 		3f
+2:
+	sub 	r0, lr, #8
+	mrs		r1, spsr
+	and		r1, r1, #0x1f
+	sub 	r1, lr, #8
+	bl		Dabort_Handler
+3:
+	ldmfd	sp!,{r0-r3, r12, lr}
+	subs	pc, lr, #8
+
+HandlerPabort:
+	stmfd	sp!,{r0-r3, r12, lr}
+	@@@@@ 주소값 저장
+	sub 	r0, lr, #4
+	@@@@@ 원인 비교
+	mrc 	p15, 0, r1, c5, c0, 1
+	ldr 	r2, =0x140F
+	and 	r1, r1, r2
+	cmp 	r1, #0xF
+	beq 	1f
+	bne 	2f
+1:
+	sub 	r1, lr, #4
+	bl		Demand_Page_Handler
+	b 		3f
+2:
 	mrs		r1, spsr
 	and		r1, r1, #0x1f
 	bl		Pabort_Handler
-	b 		3f
-2:
-	bl		Demand_Page_Handler
 3:
 	ldmfd	sp!,{r0-r3, r12, lr}
 	subs	pc, lr, #4

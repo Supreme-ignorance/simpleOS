@@ -13,7 +13,7 @@
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define DELAY	8000
+#define DELAY	3000
 
 const unsigned short * img[]={image0, img101};
 

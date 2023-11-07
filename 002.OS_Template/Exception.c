@@ -2,7 +2,7 @@
 #include "app_controller.h"
 
 unsigned int curDemandPage = 0;
-unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00400;
+unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00600;
 unsigned int* demandPageBase = (unsigned int*) 0x44C00000;
 
 void Undef_Handler(unsigned int addr, unsigned int mode)
@@ -51,28 +51,62 @@ void Pabort_Handler(unsigned int addr, unsigned int mode)
 //const unsigned int* metaDemandPageBase = (unsigned int*) 0x44B00400;
 //const unsigned int* demandPageBase = 0x44C00000;
 
-void Demand_Page_Handler(unsigned int addr)
+void restoreDemandPage(unsigned int* nextDemandPage, unsigned int MetaDemandPage)
 {
-	Uart_Printf("Demand_Page_Handler @[0x%X]\n", addr);
-
-	int i = 0;
-	unsigned int curAppNum = getCurAppNum();
-	unsigned int* va = (unsigned int*) (addr+(curAppNum << 22)+(1 << 30));
-
-	unsigned int* nextMetaDemandPage = (unsigned int*) (metaDemandPageBase + (curDemandPage << 10)); //초기화 필요
-	unsigned int* nextDemandPage = (unsigned int*) (demandPageBase + (curDemandPage << 10));
+	int i;
+	unsigned int* source_va = (unsigned int*)(MetaDemandPage & ~0xfff);
 
 	for(i = 0; i < 1024; i++)
 	{
-		*(nextMetaDemandPage + i) = curAppNum;
-		*(nextDemandPage + i) = *(va + i);
+		source_va[i] = nextDemandPage[i];
 	}
-	Uart_Printf("pa @[0x%X]----------------------------------------------------\n", va);
+}
 
-	set2ndTTAdrress(get2ndTTAdrress(addr, curAppNum), (unsigned int) nextDemandPage);
+void Demand_Page_Handler(unsigned int addr, unsigned int spot)
+{
+//	Uart_Printf("Demand_Page_Handler @[0x%X, 0x%X]\n", addr, spot);
+
+	int i = 0;
+	int curAppNum = getCurAppNum();
+	unsigned int ttbr[] = {MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_BASE + (1 << 14)};
+	unsigned int asid[] = {(1 << 4), (1 << 4)|1};
+	addr = addr & ~0xfff;
+
+	unsigned int* source_va = (unsigned int*) (addr+(1 << 30));
+	unsigned int* nextMetaDemandPage = (unsigned int*) (metaDemandPageBase + curDemandPage); //초기화 필요
+	unsigned int* nextDemandPage = (unsigned int*) (demandPageBase + (curDemandPage << 12));
+
+	// 이미 값이 들어있을 때 처리
+	if (*nextMetaDemandPage != 1 << 31)
+	{
+		int appNum = *nextMetaDemandPage & 0xfff;
+		unsigned int address = *nextMetaDemandPage & ~0xfff;
+		address = address - (1 << 30);
+
+		CoSetASID(asid[appNum]);
+		CoSetTTBase(ttbr[appNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+
+		restoreDemandPage(nextDemandPage, *nextMetaDemandPage);
+		set2ndTTAdrress(address, 0, appNum, PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS);
+
+		CoSetASID(asid[curAppNum]);
+		CoSetTTBase(ttbr[curAppNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
+	}
+
+
+	*nextMetaDemandPage = ((unsigned int) source_va)|curAppNum;
+
+	for(i = 0; i < 1024; i++)
+	{
+		*(nextDemandPage + i) = *(source_va + i);
+	}
+
+	set2ndTTAdrress(addr, (unsigned int) nextDemandPage, curAppNum, PAGE_2ST_RW_NCNB_LOCAL_ACCESS);
+	CoInvalidateMainTlb();
 
 	curDemandPage += 1;
 	curDemandPage %= 256;
+//	Uart_Printf("Demand_Page_Handler END \n");
 }
 
 void SVC_Handler_DEBUG(unsigned int addr, unsigned int mode)

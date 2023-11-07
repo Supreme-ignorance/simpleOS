@@ -89,23 +89,23 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define DOMAIN_MANAGER		(3)	/* No Check, No Falut */
 
 // Domain Number Definition
-#define DOMAIN0			(0x0<<5)
-#define DOMAIN1			(0x1<<5)
+#define DOMAIN0			(0<<5)
+#define DOMAIN1			(1<<5)
 
 // global, Non global
-#define GLOBAL			(0x0<<17)
-#define LOCAL			(0x1<<17)
-#define GLOBAL_2nd		(0x0<<11)
-#define LOCAL_2nd		(0x1<<11)
+#define GLOBAL			(0<<17)
+#define LOCAL			(1<<17)
+#define GLOBAL_2nd		(0<<11)
+#define LOCAL_2nd		(1<<11)
 
 // AP[2], [1:0]
-#define AP_NO_ACCESS	(0x0<<9|0x00<<4)
-#define AP_ACCESS		(0x0<<9|0x11<<4)
-#define AP_RESERVED		(0x1<<9|0x00<<4)
+#define AP_NO_ACCESS	(0<<9|0<<4)
+#define AP_ACCESS		(0<<9|3<<4)
+#define AP_RESERVED		(1<<9|0<<4)
 
 // Secure, Non Secure
-#define SS				(0x0<<19)
-#define NS				(0x0<<19)
+#define SS				(0<<19)
+#define NS				(0<<19)
 //#define NS				(0x1<<19)
 
 // 1's-Level Translation Table Bit Field Definition
@@ -215,7 +215,7 @@ unsigned int getPageTableBase(int appNum);
 void SetAppTransTablePageTable(unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_1st, int appNum);
 void SetAppTransTablePage(unsigned int pTT_1st, unsigned int uVaStart, unsigned int uVaEnd, unsigned int acf_2nd);
 unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum);
-void set2ndTTAdrress(unsigned int* targetAdrress, unsigned int sourceAdrress);
+void set2ndTTAdrress(unsigned int uVa, unsigned int sourceAdrress, int appNum, unsigned int acf);
 
 /* PA conversion */
 
