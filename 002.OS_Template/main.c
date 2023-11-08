@@ -12,8 +12,6 @@ extern WIN_INFO_ST ArrWinInfo[5];
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define SECTOR_SIZE 		512
-#define ALIGN_SECTOR(x)	 	((((x+(SECTOR_SIZE-1))&~(SECTOR_SIZE-1))/SECTOR_SIZE))
 
 void App_Read(unsigned int sector, unsigned int size, unsigned int addr)
 {
@@ -34,6 +32,7 @@ void Main(void)
 	LED_Init();
 	Key_ISR_Init();
 	Key_Poll_Init();
+	Uart1_ISR_Enable(1, 0, 0);
 
 	Uart_Printf("\nOS Template\n");
 
@@ -64,7 +63,7 @@ void Main(void)
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-	Timer0_Int_Delay(1,5000);
+	Timer0_Int_Delay(1,100);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

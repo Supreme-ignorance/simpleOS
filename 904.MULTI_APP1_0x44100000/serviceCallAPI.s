@@ -22,6 +22,27 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@22
 
 
+	.global Print_Hello
+Print_Hello:
+
+	svc 0
+	bx lr
+
+
+	.global _Sqr
+_Sqr:
+
+	svc 1
+	bx lr
+
+
+	.global _Long_Long_Add
+_Long_Long_Add:
+
+	svc 2
+	bx lr
+
+
 	.global Lcd_Clr_Screen
 Lcd_Clr_Screen:
 

@@ -32,7 +32,7 @@ int initApp(void)
 		// mataDemandPage
 		SetAppTransTable(META_DEMAND_PAGE, META_DEMAND_PAGE + SIZE_META - 1, META_DEMAND_PAGE, RW_WBWA, i);
 		// DemandPage
-		SetAppTransTable(DEMAND_PAGE_BASE, DEMAND_PAGE_BASE + SIZE_DEMAND_PAGE-1, DEMAND_PAGE_BASE, RW_NCNB, i);
+		SetAppTransTable(DEMAND_PAGE_BASE, DEMAND_PAGE_BASE + SIZE_DEMAND_PAGE-1, DEMAND_PAGE_BASE, RW_WT, i);
 		// 프로그램 메모리
 		SetAppTransTable(0x84100000, 0x84500000-1, ram[i], RW_WBWA_LOCAL, i);
 	}

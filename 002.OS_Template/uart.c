@@ -59,7 +59,7 @@ char Uart1_Get_Pressed(void)
 	return rURXH1;
 }
 
-void Uart1_ISR_Enable(int rx,int tx, int err)
+void Uart1_ISR_Enable(int rx, int tx, int err)
 {
 	Macro_Write_Block(rUINTM1,0xf,0xf,0);
 	rUINTSP1 = 0xf;
