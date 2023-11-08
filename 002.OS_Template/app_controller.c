@@ -3,11 +3,11 @@
 #include "device_driver.h"
 
 
-int initializeApp(void)
+int initializeApp(int appNum)
 {
 	int result = 0;
 
-	result = initApp();
+	result = initApp(appNum);
 	Uart_Printf("\n [INFO] INIT APP done \n");
 
 	return result;

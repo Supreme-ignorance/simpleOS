@@ -17,7 +17,7 @@ unsigned int stackBase[] = {STACK_BASE_APP0, STACK_BASE_APP1};
 unsigned int pcb[] = {PCBTABLE_BASE_APP0, PCBTABLE_BASE_APP1};
 unsigned int sizePcb[] = {SIZE_PCB0, SIZE_PCB1};
 
-int initApp(void)
+int initApp(int appNum)
 {
 	int result = 0;
 
@@ -44,7 +44,7 @@ int initApp(void)
 		*(metaDemandPageBase + i) = 1 << 31;
 	}
 
-	setApp(0);
+	setApp(appNum);
 
 	return result;
 }
