@@ -35,6 +35,7 @@ extern void Uart1_Printf(const char *fmt,...);
 extern char Uart1_Get_Char(void);
 extern char Uart1_Get_Pressed(void);
 extern int Uart1_GetIntNum(void);
+extern void Uart1_GetString(char *string);
 extern void Uart1_ISR_Enable(int rx,int tx, int err);
 
 //asm_function.s

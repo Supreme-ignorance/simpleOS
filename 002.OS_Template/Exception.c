@@ -151,7 +151,7 @@ void* SVC_Vector[] =
 		Invalid_SVC,		// 19
 		Invalid_SVC,		// 20
 		Uart_Printf,		// 21
-		Invalid_SVC,		// 22
+		Uart1_GetString,	// 22
 		Invalid_SVC,		// 23
 		Invalid_SVC,		// 24
 		Invalid_SVC,		// 25

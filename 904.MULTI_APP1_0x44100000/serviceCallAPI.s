@@ -62,6 +62,12 @@ Uart1_Printf:
 	svc 21
 	bx lr
 
+	.global Uart1_GetString
+Uart1_GetString:
+
+	svc 22
+	bx lr
+
 	.global LED_Display
 LED_Display:
 
