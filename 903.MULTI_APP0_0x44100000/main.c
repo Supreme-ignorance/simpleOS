@@ -4,11 +4,11 @@
 #include ".\images\planet_1.h"
 #include ".\images\planet_2.h"
 #include ".\images\planet_3.h"
-#include ".\images\planet_4.h"
-#include ".\images\planet_5.h"
-#include ".\images\planet_6.h"
-#include ".\images\planet_7.h"
-#include ".\images\planet_8.h"
+//#include ".\images\planet_4.h"
+//#include ".\images\planet_5.h"
+//#include ".\images\planet_6.h"
+//#include ".\images\planet_7.h"
+//#include ".\images\planet_8.h"
 
 //extern WIN_INFO_ST ArrWinInfo[5];
 
@@ -20,7 +20,7 @@
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define DELAY	2000
+#define DELAY	4000
 
 unsigned int planet_num = 0;
 
@@ -29,11 +29,11 @@ const unsigned short * img[]={
 		planet_1,
 		planet_2,
 		planet_3,
-		planet_4,
-		planet_5,
-		planet_6,
-		planet_7,
-		planet_8
+		//planet_4,
+		//planet_5,
+		//planet_6,
+		//planet_7,
+		//planet_8
 };
 
 void restorePicture(void)
@@ -49,11 +49,11 @@ void Main(void)
 
 	for(;;)
 	{
-		for(i=0; i<9; i++)
+		for(i=0; i<4; i++)
 		{
 			Lcd_Clr_Screen();
 			Lcd_Draw_BMP(0,0,img[i]);
-			planet_num = (planet_num+1) % 9;
+			planet_num = (planet_num+1) % 4;
 			Delay(DELAY);
 			Lcd_Clr_Screen();
 		}

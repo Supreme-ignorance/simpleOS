@@ -76,8 +76,44 @@ Run_App0:
 	.extern checkRegister
 	.extern Timer0_ISR
 
-	.global Backup_Context
-Backup_Context:
+	.global Backup_Context_Timer
+Backup_Context_Timer:
+
+	push	{lr}
+
+	ldr 	r14, =curAppNum
+	ldr 	r14, [r14]
+
+	cmp 	r14, #1
+	ldreq 	r14, =PCB_BASE_APP1
+	cmp 	r14, #0
+	ldreq 	r14, =PCB_BASE_APP0
+
+	@@@@@@ backup
+	stmia 	r14, {r0-r14}^
+	add 	r14, #60
+	mov 	r0, r14
+	pop 	{lr}
+	sub 	lr, lr, #4
+	str 	lr, [r0]
+	mrs 	r1, spsr
+	str 	r1, [r0, #4]
+	@@@@@@
+
+	@@@@@@
+@	push 	{r0-r3, ip, lr}
+@	bl		checkRegister
+@	pop 	{r0-r3, ip, lr}
+	@@@@@@
+
+	push 	{r0-r3, r12, lr}
+	bl 		Timer0_ISR
+	pop		{r0-r3, r12, lr}
+
+	b 		Load_Context
+
+	.global Backup_Context_Key
+Backup_Context_Key:
 
 	push	{lr}
 

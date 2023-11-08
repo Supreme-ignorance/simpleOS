@@ -125,7 +125,7 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS	(AP_NO_ACCESS|LOCAL_2nd)
 #define PAGE_2ST_RW_NCNB_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd)
 #define PAGE_2ST_RW_WBWA_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd|WBWA_2nd)
-#define PAGE_2ST_RW_WT_LOCAL_ACCESS		(AP_ACCESS|LOCAL_2nd|WT_2nd)
+#define PAGE_2ST_RW_WT_LOCAL_ACCESS			(AP_ACCESS|LOCAL_2nd|WT_2nd)
 
 // cp15a.s & cp15.c
 

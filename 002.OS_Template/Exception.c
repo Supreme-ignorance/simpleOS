@@ -64,7 +64,7 @@ void restoreDemandPage(unsigned int* nextDemandPage, unsigned int MetaDemandPage
 
 void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 {
-//	Uart_Printf("Demand_Page_Handler @[0x%X, 0x%X]\n", addr, spot);
+	Uart_Printf("Demand_Page_Handler @[0x%X, 0x%X]\n", addr, spot);
 
 	int i = 0;
 	int curAppNum = getCurAppNum();
@@ -84,13 +84,13 @@ void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 		address = address - (1 << 30);
 
 		CoSetASID(asid[appNum]);
-		CoSetTTBase(ttbr[appNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+		CoSetTTBase(ttbr[appNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
 
 		restoreDemandPage(nextDemandPage, *nextMetaDemandPage);
 		set2ndTTAdrress(address, 0, appNum, PAGE_2ST_RW_NCNB_LOCAL_NO_ACCESS);
 
 		CoSetASID(asid[curAppNum]);
-		CoSetTTBase(ttbr[curAppNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+		CoSetTTBase(ttbr[curAppNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
 
 //		L2C_CleanAndInvalidate_VA(address, OS_WRITE);
 //		CoCleanAndInvalidateDCacheVA(address);
@@ -152,7 +152,7 @@ void* SVC_Vector[] =
 		Uart_Printf,		// 20
 		Uart1_Get_Char,		// 21
 		Uart1_Send_Byte,	// 22
-		Invalid_SVC,		// 23
+		Uart1_Get_Pressed,		// 23
 		Invalid_SVC,		// 24
 		Invalid_SVC,		// 25
 		Invalid_SVC,		// 26
@@ -231,7 +231,7 @@ void (*ISR_Vector[])(void) =
 		Invalid_ISR,		// 48
 		Invalid_ISR,		// 49
 		Invalid_ISR,		// 50
-		Key3_ISR,			// 51
+		Backup_Context_Key,			// 51
 		Key4_ISR,			// 52
 		Invalid_ISR,		// 53
 		Invalid_ISR,		// 54
@@ -249,7 +249,7 @@ void (*ISR_Vector[])(void) =
 		Invalid_ISR,		// 66
 		Invalid_ISR,		// 67
 		Invalid_ISR,		// 68
-		Backup_Context,		// 69
+		Backup_Context_Timer,		// 69
 		Invalid_ISR,		// 70
 		Invalid_ISR,		// 71
 		Invalid_ISR,		// 72
@@ -381,9 +381,12 @@ void Timer0_ISR(void)
 
 void Switch_APP_ISR(void)
 {
-	rTINT_CSTAT |= ((1<<5)|1);
-	GIC_Clear_Pending_Clear(0,69);
-	GIC_Write_EOI(0, 69);
+	rEXT_INT40_PEND = 0x1<<3;
+
+	Uart1_Printf("Key3 Pressed\n");
+
+	GIC_Clear_Pending_Clear(0,51);
+	GIC_Write_EOI(0, 51);
 
 #if 1 // only change
 	switchAppASIDTTBR();

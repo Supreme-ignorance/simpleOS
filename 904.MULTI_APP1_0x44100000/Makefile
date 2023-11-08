@@ -43,8 +43,8 @@ all : $(OUT_BIN_FILE)
 
 $(OUT_BIN_FILE): $(OUT_ELF_FILE)
 	$(OBJCOPY) $(OUT_ELF_FILE) $(OUT_BIN_FILE) -O binary
-#	$(OBJDUMP) -x -D .\$(OUT_ELF_FILE) > .\__dump.txt
-#	$(OBJDUMP) -x -D -S .\$(OUT_ELF_FILE) > .\__dump_all.txt
+	$(OBJDUMP) -x -D .\$(OUT_ELF_FILE) > .\__dump.txt
+	$(OBJDUMP) -x -D -S .\$(OUT_ELF_FILE) > .\__dump_all.txt
 	copy /y $(OUT_BIN_FILE) "$(HOME_DIR)"
 
 $(OUT_ELF_FILE): $(OBJS)

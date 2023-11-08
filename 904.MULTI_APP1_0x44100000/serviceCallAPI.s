@@ -68,6 +68,12 @@ Uart1_Send_Byte:
 	svc 22
 	bx lr
 
+	.global Uart1_Get_Pressed
+Uart1_Get_Pressed:
+
+	svc 23
+	bx lr
+
 	.global LED_Display
 LED_Display:
 

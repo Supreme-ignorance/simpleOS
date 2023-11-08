@@ -54,7 +54,7 @@ int setApp(int appNum)
 	int result = 0;
 
 	CoSetASID(asid[appNum]);
-	CoSetTTBase(ttbr[appNum]|(1<<6)|(1<<3)|(0<<1)|(0<<0));
+	CoSetTTBase(ttbr[appNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
 
 	return result;
 }

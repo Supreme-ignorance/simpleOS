@@ -1,6 +1,9 @@
 #include "device_driver.h"
 #include "view.h"
 
+char restore[101];
+
+
 void initView()
 {
 	Lcd_Clr_Screen();
@@ -18,4 +21,9 @@ void initView()
 void printOutPut(char* outPut)
 {
 	Lcd_Printf(OUTPUT_X_START, OUTPUT_Y_START, WHITE, BLACK, INNER_TEXT_SIZE, INNER_TEXT_SIZE, "%s", outPut);
+}
+
+void printInPut(char* inPut)
+{
+	Lcd_Printf(INPUT_X_START, INPUT_Y_START, WHITE, BLACK, INNER_TEXT_SIZE, INNER_TEXT_SIZE, "%s", inPut);
 }
