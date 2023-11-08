@@ -20,7 +20,7 @@
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define DELAY	16000
+#define DELAY	2000
 
 unsigned int planet_num = 0;
 
