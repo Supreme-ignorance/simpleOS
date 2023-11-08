@@ -12,13 +12,13 @@ void Main(void)
 	int* curPlanet = (int*) 0x44b10000;
 
 	Uart_Printf("은하수를 여행하는 히치하이커를 위한  번역기 가둥중... \n");
+	initView();
 
 	for(;;)
 	{
-
 		initCharPointer(input);
 		initCharPointer(res);
-		initView();
+		clearView();
 
 		Uart1_GetString(input);
 		translation(res, input, *curPlanet);
