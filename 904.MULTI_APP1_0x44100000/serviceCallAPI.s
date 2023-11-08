@@ -59,11 +59,11 @@ Lcd_Draw_BMP:
 	.global Uart1_Printf
 Uart1_Printf:
 
-	svc 21
+	svc 20
 	bx lr
 
-	.global Uart1_GetString
-Uart1_GetString:
+	.global Uart1_Send_Byte
+Uart1_Send_Byte:
 
 	svc 22
 	bx lr

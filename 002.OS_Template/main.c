@@ -27,7 +27,7 @@ void App_Read(unsigned int sector, unsigned int size, unsigned int addr)
 void Main(void)
 {
 	CoInitMmuAndL1L2Cache();
-	initializeApp(1);
+	initializeApp(0);
 	Uart_Init(115200);
 	LED_Init();
 	Key_ISR_Init();
@@ -63,7 +63,7 @@ void Main(void)
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-//	Timer0_Int_Delay(1,100);
+	Timer0_Int_Delay(1,100);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif

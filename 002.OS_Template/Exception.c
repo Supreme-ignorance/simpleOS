@@ -149,9 +149,9 @@ void* SVC_Vector[] =
 		Invalid_SVC,		// 17
 		Invalid_SVC,		// 18
 		Invalid_SVC,		// 19
-		Invalid_SVC,		// 20
-		Uart_Printf,		// 21
-		Uart1_GetString,	// 22
+		Uart_Printf,		// 20
+		Uart1_Get_Char,		// 21
+		Uart1_Send_Byte,	// 22
 		Invalid_SVC,		// 23
 		Invalid_SVC,		// 24
 		Invalid_SVC,		// 25
@@ -344,7 +344,7 @@ void Uart1_ISR(void)
 	GIC_Clear_Pending_Clear(0,85);
 	GIC_Write_EOI(0, 85);
 
-	Uart1_Printf("Uart1 => %c\n", rURXH1);
+//	Uart1_Printf("Uart1 => %c\n", rURXH1);
 }
 
 void Key3_ISR(void)

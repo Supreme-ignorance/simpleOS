@@ -59,7 +59,7 @@ Lcd_Draw_BMP:
 	.global Uart1_Printf
 Uart1_Printf:
 
-	svc 21
+	svc 20
 	bx lr
 
 	.global LED_Display
