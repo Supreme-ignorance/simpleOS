@@ -46,6 +46,7 @@ void Main(void)
 {
 	Uart_Printf(">>APP0 => LCD Display\n");
 	int i = 0;
+	int* curPlanet = (int*) 0x44b10000;
 
 	for(;;)
 	{
@@ -53,6 +54,7 @@ void Main(void)
 		{
 			Lcd_Half_Clr_Screen(0);
 			Lcd_Draw_BMP(0,0,img[i]);
+			*curPlanet = i;
 			planet_num = (planet_num+1) % 4;
 			Delay(DELAY);
 			Lcd_Half_Clr_Screen(0);
