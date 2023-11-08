@@ -1,1 +1,1 @@
-BMP2_565 img101
+BMP2_565 planet_10
