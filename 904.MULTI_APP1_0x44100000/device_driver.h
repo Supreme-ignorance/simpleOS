@@ -35,6 +35,51 @@ extern int Key_Get_Key_Pressed(void);
 
 //graphics.c
 
+#define BLACK	0x0000
+#define WHITE	0xffff
+#define BLUE	0x001f
+#define GREEN	0x07e0
+#define RED		0xf800
+#define YELLOW	0xffe0
+#define VIOLET	0xf81f
+
+#define TITLE_X_START 		20
+#define TITLE_Y_START 		10
+#define TITLE_TEXT_SIZE 	2
+
+#define BOX_TEXT_SIZE 		1
+
+#define BOX1_TITLE_X_START 	20
+#define BOX1_TITLE_Y_START 	INIT_INPUTBOX_Y - 5
+
+#define INIT_INPUTBOX_X 	10
+#define INIT_INPUTBOX_Y 	60
+#define END_INPUTBOX_X 		INIT_INPUTBOX_X + SIZE_BOX_X
+#define END_INPUTBOX_Y 		INIT_INPUTBOX_Y + SIZE_BOX_Y
+
+#define BOX_ALIGN 	260
+#define BOX2_TITLE_X_START 	BOX1_TITLE_X_START
+#define BOX2_TITLE_Y_START 	BOX1_TITLE_Y_START + BOX_ALIGN
+
+#define INIT_OUTPUTBOX_X 	INIT_INPUTBOX_X
+#define INIT_OUTPUTBOX_Y 	INIT_INPUTBOX_Y + BOX_ALIGN
+#define END_OUTPUTBOX_X 	END_INPUTBOX_X
+#define END_OUTPUTBOX_Y 	END_INPUTBOX_Y + BOX_ALIGN
+
+#define SIZE_BOX_X 			1004
+#define SIZE_BOX_Y 			200
+
+#define LINE_SIZE 			2
+#define INNER_TEXT_ALIGN 	30
+#define INNER_TEXT_SIZE 	2
+
+#define INPUT_X_START 	INIT_INPUTBOX_X + INNER_TEXT_ALIGN
+#define INPUT_X_SIZE 	20
+#define INPUT_Y_START 	INIT_INPUTBOX_Y + INNER_TEXT_ALIGN
+
+#define OUTPUT_X_START 	INPUT_X_START
+#define OUTPUT_Y_START 	INPUT_Y_START + BOX_ALIGN
+
 typedef struct {
 	unsigned int posx;
 	unsigned int posy;

@@ -94,6 +94,14 @@ extern long long _Long_Long_Add(long long a, long long b);
 
 //graphics.c
 
+#define BLACK	0x0000
+#define WHITE	0xffff
+#define BLUE	0x001f
+#define GREEN	0x07e0
+#define RED		0xf800
+#define YELLOW	0xffe0
+#define VIOLET	0xf81f
+
 typedef struct {
 	unsigned int posx;
 	unsigned int posy;

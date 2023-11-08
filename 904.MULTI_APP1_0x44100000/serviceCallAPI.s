@@ -74,6 +74,18 @@ LED_Display:
 	svc 12
 	bx lr
 
+	.global Lcd_Printf
+Lcd_Printf:
+
+	svc 13
+	bx lr
+
+	.global Lcd_Draw_Bar
+Lcd_Draw_Bar:
+
+	svc 14
+	bx lr
+
 
 	.global Key_Get_Key_Pressed
 Key_Get_Key_Pressed:
