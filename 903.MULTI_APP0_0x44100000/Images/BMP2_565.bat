@@ -1,1 +1,1 @@
-BMP2_565 planet_10
+BMP2_565 planet_8
