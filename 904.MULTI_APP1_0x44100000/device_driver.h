@@ -43,16 +43,18 @@ extern int Key_Get_Key_Pressed(void);
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define TITLE_X_START 		20
+#define RIGHT_ALIGN 		512
+
+#define TITLE_X_START 		20 + RIGHT_ALIGN
 #define TITLE_Y_START 		10
-#define TITLE_TEXT_SIZE 	2
+#define TITLE_TEXT_SIZE 	1.5
 
 #define BOX_TEXT_SIZE 		1
 
-#define BOX1_TITLE_X_START 	20
+#define BOX1_TITLE_X_START 	20 + RIGHT_ALIGN
 #define BOX1_TITLE_Y_START 	INIT_INPUTBOX_Y - 5
 
-#define INIT_INPUTBOX_X 	10
+#define INIT_INPUTBOX_X 	10 + RIGHT_ALIGN
 #define INIT_INPUTBOX_Y 	60
 #define END_INPUTBOX_X 		INIT_INPUTBOX_X + SIZE_BOX_X
 #define END_INPUTBOX_Y 		INIT_INPUTBOX_Y + SIZE_BOX_Y
@@ -66,7 +68,7 @@ extern int Key_Get_Key_Pressed(void);
 #define END_OUTPUTBOX_X 	END_INPUTBOX_X
 #define END_OUTPUTBOX_Y 	END_INPUTBOX_Y + BOX_ALIGN
 
-#define SIZE_BOX_X 			1004
+#define SIZE_BOX_X 			492
 #define SIZE_BOX_Y 			200
 
 #define LINE_SIZE 			2
@@ -129,3 +131,4 @@ extern void Lcd_Draw_STACK(void);
 extern void Lcd_Printf(int x, int y, int color, int bkcolor, int zx, int zy, char *fmt,...);
 extern void Lcd_Draw_Bar(int x1, int y1, int x2, int y2, int color);
 extern void Lcd_Draw_Line(int x1,int y1,int x2,int y2,int color);
+extern void Lcd_Half_Clr_Screen(int appNum);

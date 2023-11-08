@@ -6,7 +6,7 @@ char restore[101];
 
 void initView()
 {
-	Lcd_Clr_Screen();
+	Lcd_Half_Clr_Screen(1);
 
 	Lcd_Printf(TITLE_X_START, TITLE_Y_START, WHITE, BLACK, TITLE_TEXT_SIZE, TITLE_TEXT_SIZE, "은하수를 여행하는 히치하이커를 위한  번역기");
 	Lcd_Draw_Bar( INIT_INPUTBOX_X, INIT_INPUTBOX_Y, END_INPUTBOX_X, END_INPUTBOX_Y, WHITE);

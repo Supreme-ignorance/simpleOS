@@ -144,7 +144,7 @@ void* SVC_Vector[] =
 		LED_Display,		// 12
 		Lcd_Printf,			// 13
 		Lcd_Draw_Bar,		// 14
-		Lcd_Half_Clr_Screen,		// 15
+		Lcd_Half_Clr_Screen,// 15
 		Invalid_SVC,		// 16
 		Invalid_SVC,		// 17
 		Invalid_SVC,		// 18

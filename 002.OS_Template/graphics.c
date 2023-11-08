@@ -545,5 +545,5 @@ void Lcd_Draw_STACK(void){
 
 void Lcd_Half_Clr_Screen(int appNum)
 {
-	Lcd_Draw_Bar( 512 * appNum, 0, 512 * (appNum + 1), 512, BLACK);
+	Lcd_Draw_Bar( 512 * appNum, 0, 512 * (appNum + 1), 612, BLACK);
 }

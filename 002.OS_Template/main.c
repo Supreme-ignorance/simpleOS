@@ -31,7 +31,7 @@ void Main(void)
 	Uart_Init(115200);
 	LED_Init();
 	Key_ISR_Init();
-//	Key_Poll_Init();
+	Key_Poll_Init();
 	Uart1_ISR_Enable(1, 0, 0);
 
 	Uart_Printf("\nOS Template\n");
@@ -63,7 +63,7 @@ void Main(void)
 #if 1
 
 	Uart1_ISR_Enable(1,0,0);
-//	Timer0_Int_Delay(1,2000);
+	Timer0_Int_Delay(1,20);
 	Run_App0(RAM_APP0, STACK_BASE_APP0);
 
 #endif
