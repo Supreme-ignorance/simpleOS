@@ -83,3 +83,4 @@ extern void Lcd_Draw_STACK(void);
 extern void Lcd_Printf(int x, int y, int color, int bkcolor, int zx, int zy, char *fmt,...);
 extern void Lcd_Draw_Bar(int x1, int y1, int x2, int y2, int color);
 extern void Lcd_Draw_Line(int x1,int y1,int x2,int y2,int color);
+extern void Lcd_Half_Clr_Screen(int appNum);

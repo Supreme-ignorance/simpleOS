@@ -86,3 +86,9 @@ Key_Wait_Key_Pressed:
 
 	svc 32
 	bx lr
+
+	.global Lcd_Half_Clr_Screen
+Lcd_Half_Clr_Screen:
+
+	svc 15
+	bx lr

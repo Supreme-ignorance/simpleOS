@@ -20,7 +20,7 @@
 #define YELLOW	0xffe0
 #define VIOLET	0xf81f
 
-#define DELAY	4000
+#define DELAY	16000
 
 unsigned int planet_num = 0;
 
@@ -51,11 +51,11 @@ void Main(void)
 	{
 		for(i=0; i<4; i++)
 		{
-			Lcd_Clr_Screen();
+			Lcd_Half_Clr_Screen(0);
 			Lcd_Draw_BMP(0,0,img[i]);
 			planet_num = (planet_num+1) % 4;
 			Delay(DELAY);
-			Lcd_Clr_Screen();
+			Lcd_Half_Clr_Screen(0);
 		}
 	}
 }
