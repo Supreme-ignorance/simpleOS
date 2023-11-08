@@ -414,7 +414,6 @@ static void CoTTSet_L1L2(void)
 {
 	CoTTSet_APP_L1L2(0);
 
-//	CoSetTTBase(MMU_PAGE_TABLE_BASE|(0<<6)|(0<<3)|(0<<1)|(0<<0));
 	CoSetTTBase(MMU_PAGE_TABLE_BASE|(1<<6)|(1<<3)|(0<<1)|(0<<0));
 	CoSetDomain(0x55555550|(DOMAIN_NO_ACCESS<<2)|(DOMAIN_CLIENT));
 }
