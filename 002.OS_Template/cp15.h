@@ -75,7 +75,7 @@ extern void exynos_smc(unsigned int reg, int val1, int val2, int val3);
 #define WT			(0x2<<2)		/* Write-Through Cached <=> Buffered(ARMv7 : Outer and Inner WT, No Write-Allocate) */
 #define WB			(0x3<<2)		/* Write-Back Cached <=> Buffered(ARMv7 : Outer and Inner WB, No Write-Allocate) */
 #define WBWA		((0x1<<12)|(0x3<<2))
-#define WBWA_2nd	((0x1<<9)|(0x3<<4))
+#define WBWA_2nd	((0x3<<4))
 #define WT_2nd		((0x2<<4))
 
 // Access Permission Bits Definition(When AP[2]=0 in ARMv7)

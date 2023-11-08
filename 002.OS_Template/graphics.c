@@ -542,3 +542,8 @@ void Lcd_Draw_STACK(void){
 	//stack test, 현재 sp, 현재 stack guard, 지금까지 guard 개수, error상황(overflow, timer)
 	Lcd_Printf(0,0,WHITE, BLACK,3,3,"APP0 STACK test", 1);
 }
+
+void Lcd_Half_Clr_Screen(int appNum)
+{
+	Lcd_Draw_Bar( 512 * appNum, 0, 512 * (appNum + 1), 512, BLACK);
+}

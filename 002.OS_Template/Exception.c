@@ -64,7 +64,7 @@ void restoreDemandPage(unsigned int* nextDemandPage, unsigned int MetaDemandPage
 
 void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 {
-	Uart_Printf("Demand_Page_Handler @[0x%X, 0x%X]\n", addr, spot);
+//	Uart_Printf("Demand_Page_Handler @[0x%X, 0x%X]\n", addr, spot);
 
 	int i = 0;
 	int curAppNum = getCurAppNum();
@@ -144,7 +144,7 @@ void* SVC_Vector[] =
 		LED_Display,		// 12
 		Lcd_Printf,			// 13
 		Lcd_Draw_Bar,		// 14
-		Invalid_SVC,		// 15
+		Lcd_Half_Clr_Screen,		// 15
 		Invalid_SVC,		// 16
 		Invalid_SVC,		// 17
 		Invalid_SVC,		// 18

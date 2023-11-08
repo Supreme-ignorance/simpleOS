@@ -244,7 +244,9 @@ unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum)
 void set2ndTTAdrress(unsigned int uVa, unsigned int sourceAdrress, int appNum, unsigned int acf)
 {
 	unsigned int* targetAdrress = get2ndTTAdrress(uVa, appNum);
+//	Uart_Printf("be *targetAdrress : ------------------ 0x%x \n", *targetAdrress);
 	*targetAdrress = (sourceAdrress & ~0xfff)|acf|(1<<1);
+//	Uart_Printf("after *targetAdrress : ------------------ 0x%x \n", *targetAdrress);
 }
 
 static void CoTTSet_L1(void);
@@ -426,7 +428,7 @@ static void CoTTSet_APP_L1L2(int appNum)
 	SetAppTransTable(MMU_PAGE_TABLE_BASE, MMU_PAGE_TABLE_LIMIT-1, MMU_PAGE_TABLE_BASE, RW_NCNB, appNum);
 
 	/* Free Memory */
-	SetAppTransTable(MMU_PAGE_TABLE_LIMIT, LCD_FB00_START_ADDR-1, MMU_PAGE_TABLE_LIMIT, RW_NCNB, appNum);
+	SetAppTransTable(MMU_PAGE_TABLE_LIMIT, LCD_FB00_START_ADDR-1, MMU_PAGE_TABLE_LIMIT, RW_WT, appNum);
 
 	/* LCD Frame Buffer */
 	SetAppTransTable(LCD_FB00_START_ADDR, LCD_FB01_START_ADDR-1, LCD_FB00_START_ADDR, RW_WT, appNum);
