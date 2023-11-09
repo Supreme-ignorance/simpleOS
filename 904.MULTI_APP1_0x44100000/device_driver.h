@@ -47,7 +47,11 @@ extern int Key_Get_Key_Pressed(void);
 
 #define TITLE_X_START 		20 + RIGHT_ALIGN
 #define TITLE_Y_START 		10
-#define TITLE_TEXT_SIZE 	1.5
+#define TITLE_TEXT_SIZE 	1
+
+#define INIT_X_START 		250 + RIGHT_ALIGN
+#define INIT_Y_START 		570
+#define INIT_TEXT_SIZE 		1
 
 #define BOX_TEXT_SIZE 		1
 
