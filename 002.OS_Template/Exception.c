@@ -92,9 +92,6 @@ void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 		CoSetASID(asid[curAppNum]);
 		CoSetTTBase(ttbr[curAppNum]|(0<<6)|(0<<3)|(0<<1)|(0<<0));
 
-//		L2C_CleanAndInvalidate_VA(address, OS_WRITE);
-//		CoCleanAndInvalidateDCacheVA(address);
-		L2C_CleanAndInvalidate_All();
 	}
 
 
@@ -103,13 +100,14 @@ void Demand_Page_Handler(unsigned int addr, unsigned int spot)
 	for(i = 0; i < 1024; i++)
 	{
 		*(nextDemandPage + i) = *(source_va + i);
+
+		CoInvalidateMainTlbVA((unsigned int) (addr + (i * 4)));
+		CoInvalidateMainTlbVA((unsigned int) (nextDemandPage + i));
+		CoCleanAndInvalidateDCacheVA((unsigned int) (nextDemandPage + i));
+		L2C_CleanAndInvalidate_VA((unsigned int) (nextDemandPage + i), OS_WRITE);
 	}
 
 	set2ndTTAdrress(addr, (unsigned int) nextDemandPage, curAppNum, PAGE_2ST_RW_WBWA_LOCAL_ACCESS);
-	CoInvalidateMainTlb();
-//	L2C_CleanAndInvalidate_VA(addr, OS_WRITE);
-//	CoCleanAndInvalidateDCacheVA(addr);
-	L2C_CleanAndInvalidate_All();
 
 	curDemandPage += 1;
 	curDemandPage %= MAX_META_PAGE;

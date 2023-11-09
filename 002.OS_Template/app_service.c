@@ -29,7 +29,7 @@ int initApp(int appNum)
 		// mataDemandPage (GLOBAL)
 		SetAppTransTable(META_TABLE_BASE_APP, META_TABLE_LIMIT_APP - 1, META_TABLE_BASE_APP, RW_WBWA, i);
 		// DemandPage (GLOBAL)
-		SetAppTransTable(DEMAND_PAGE_BASE, DEMAND_PAGE_BASE + SIZE_DEMAND_PAGE-1, DEMAND_PAGE_BASE, RW_WT, i);
+		SetAppTransTable(DEMAND_PAGE_BASE, DEMAND_PAGE_BASE + SIZE_DEMAND_PAGE-1, DEMAND_PAGE_BASE, RW_WBWA, i);
 		// 프로그램 메모리 (LOCAL)
 		SetAppTransTable(0x84100000, 0x84500000-1, ram[i], RW_WBWA_LOCAL, i);
 	}

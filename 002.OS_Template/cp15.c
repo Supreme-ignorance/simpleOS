@@ -244,9 +244,14 @@ unsigned int* get2ndTTAdrress(unsigned int uVa, int appNum)
 void set2ndTTAdrress(unsigned int uVa, unsigned int sourceAdrress, int appNum, unsigned int acf)
 {
 	unsigned int* targetAdrress = get2ndTTAdrress(uVa, appNum);
-//	Uart_Printf("be *targetAdrress : ------------------ 0x%x \n", *targetAdrress);
 	*targetAdrress = (sourceAdrress & ~0xfff)|acf|(1<<1);
-//	Uart_Printf("after *targetAdrress : ------------------ 0x%x \n", *targetAdrress);
+
+	CoInvalidateMainTlbVA(uVa);
+	CoCleanAndInvalidateDCacheVA(uVa);
+	L2C_CleanAndInvalidate_VA(uVa, OS_WRITE);
+	CoInvalidateMainTlbVA((unsigned int) targetAdrress);
+	CoCleanAndInvalidateDCacheVA((unsigned int) targetAdrress);
+	L2C_CleanAndInvalidate_VA((unsigned int) targetAdrress, OS_WRITE);
 }
 
 static void CoTTSet_L1(void);
